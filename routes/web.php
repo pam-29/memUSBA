@@ -2,26 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemeController;
-use App\Models\Portrait;
 
-Route::get('/', function () {
-    return view('home');
-});
-
-
-// Meme routes
+// Page d'accueil
 Route::get('/', [MemeController::class, 'index'])->name('home');
+
+// Création de meme
+Route::get('/create', [MemeController::class, 'create'])->name('memes.create');
 Route::post('/memes', [MemeController::class, 'store'])->name('memes.store');
 
-// Galerie route
+// Galerie de memes
 Route::get('/galerie', [MemeController::class, 'galerie'])->name('memes.galerie');
-
-// Create routes
-Route::get('/create', function () {return view('create');})->name('memes.create');
-
-// Portraits slideshow
-Route::get('/create', function () {
-    return view('create', [
-        'portraits' => Portrait::all()
-    ]);
-});

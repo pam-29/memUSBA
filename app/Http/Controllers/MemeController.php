@@ -35,4 +35,10 @@ class MemeController extends Controller
         $memes = \App\Models\Meme::with('portrait')->latest()->get();        
         return view('galerie', compact('memes'));
     }
+
+    public function create()
+    {
+        $portraits = Portrait::all();
+        return view('create', compact('portraits'));
+    }
 }
