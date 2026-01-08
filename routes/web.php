@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemeController;
+use App\Models\Portrait;
 
 Route::get('/', function () {
     return view('home');
@@ -17,3 +18,10 @@ Route::get('/galerie', [MemeController::class, 'galerie'])->name('memes.galerie'
 
 // Create routes
 Route::get('/create', function () {return view('create');})->name('memes.create');
+
+// Portraits slideshow
+Route::get('/create', function () {
+    return view('create', [
+        'portraits' => Portrait::all()
+    ]);
+});
