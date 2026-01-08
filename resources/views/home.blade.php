@@ -13,7 +13,7 @@
 
     <p>Viens créer ton propre meme et atteindre le podium</p>
 
-    <a href="" class="button"> 
+    <a href="{{ route('memes.create') }}" class="button"> 
         COMMENCER
     </a>
 

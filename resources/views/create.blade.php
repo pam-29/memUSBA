@@ -13,8 +13,8 @@
 
     <label for="name">Ecris ton commentaire</label>
     <input type="text" id="name">
-    <a href="" class="button"> VALIDER </a>
-    <a href="" class="button"> VOTER SANS CRÉER </a>
+    <a href="{{ route('memes.galerie') }}" class="button"> VALIDER </a>
+    <a href="{{ route('memes.galerie') }}" class="button"> VOTER SANS CRÉER </a>
 
 </body>
 </html>

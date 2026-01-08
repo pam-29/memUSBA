@@ -10,7 +10,6 @@ class MemeController extends Controller
 {
     public function index() 
     {
-        // On récupère un portrait aléatoire dans la base
         $portrait = Portrait::inRandomOrder()->first();
         return view('home', compact('portrait'));
     }
@@ -18,15 +17,22 @@ class MemeController extends Controller
     public function store(Request $request) 
     {
         $request->validate([
-            'text' => 'required|max:255',
-            'portrait_id' => 'required|exists:portraits,id'
+            'text' => 'required|string|max:255',
+            'portrait_id' => 'required|exists:portraits,id',
         ]);
 
-        Meme::create([
+        \App\Models\Meme::create([
             'text' => $request->text,
             'portrait_id' => $request->portrait_id,
+            'public' => true,
         ]);
 
-        return redirect()->route('home')->with('success', 'Meme créé !');
+        return redirect()->route('memes.galerie')->with('success', 'Meme ajouté à la galerie !');
+    }
+
+    public function galerie()
+    {
+        $memes = \App\Models\Meme::with('portrait')->latest()->get();        
+        return view('galerie', compact('memes'));
     }
 }
