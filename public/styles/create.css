@@ -1,29 +1,130 @@
 body{
+    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #5E239D;
+    color: #fff;
+    font-family: Impact, sans-serif;
 }
 
-.button{
-    background-color: blue;
-    color: white;
+h1, label{
+    -webkit-text-stroke:1px rgb(0,0,0);
+    text-shadow: 2px 2px 0 #000000;
+}
+
+label{
+    font-size: 20px;
+}
+
+.input-container,
+.input-container div{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container{ 
+    align-items: center;
+}
+
+.input-container div{
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.input-container textarea{
+    width: 400px;
+    height: 70px;
+}
+
+.input-container textarea:focus{
+    outline: 0;
+}
+
+.button-vote,
+.input-container button{
+    margin-bottom: 20px;
+    background-color: #1E0737;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
     text-decoration: none;
-    padding: 0.8%;
-    margin: 1%;
-    border-radius: 10px;
+    cursor: pointer;
+    font-family: Impact, sans-serif;
 }
+
+.input-container button{
+    margin-top: 20px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides.active {
+    display: block;
+}
+
+.slider-image {
+    width: 350px;
+    height: 500px;
+}
+
+.slider-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.prev, 
+.next{
+    font-weight: bold;
+    font-size: 40px;
+    cursor: pointer;
+    border-radius: 100px;
+    background-color: white;
+    color: black;
+    padding: 6px 20px;
+    width: auto;
+}
+
+.prev:hover, .next:hover,
+.button-vote:hover,
+.input-container button:hover{
+    opacity: 70%;
+}
+
 .fade {
-        animation: fadeAnim 0.5s;
-    }
-    @keyframes fadeAnim {
-        from {opacity: .4} 
-        to {opacity: 1}
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@media screen and (max-width:600px) {
+    .slider-image {
+        width: 150px;
+        height: 200px;
     }
 
-.mySlides img {
-    width: 100%;
-    height: 500px;      /* Force a height */
-    object-fit: cover;  /* Prevents stretching */
-    display: block;     /* Removes bottom gaps */
-    background-color: #f0f0f0; /* Helps you see if the box exists */
+    .prev,
+    .next{
+        font-size: 24px;
+        padding: 8px 15px;
+    }
+
+    .input-container textarea{
+        width: 200px;
+        height: 70px;
+    }
+
+    .button-vote,
+    .input-container button{
+        font-size: 16px;
+    }
 }
