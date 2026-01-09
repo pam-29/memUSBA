@@ -38,42 +38,45 @@ img{
     width: 336px;
     height: 400px;
     display: block;
+    object-fit: cover; 
 }
 
-.GridCell{
-    position: relative; 
-    border: 2px solid #000000; 
+.GridCell {
+    width: 336px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
     background: #FFFFFF;
-    -webkit-text-stroke: 1px rgb(0, 0, 0); 
-    text-shadow: 2px 2px 0 #000000;
+    overflow: hidden;
     margin-top: 10%;
-    block-size: fit-content;
 }
 
-
-.GridCell h2{
-    width: auto;
-    font-size: 24px;
-    margin: 4%;
-    height: auto; 
+.GridCell > div:first-child {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    overflow: hidden; /* Important pour le script */
 }
 
+.GridCell h2 {
+    margin: 0;
+    padding: 5px 10px;
+    text-align: center;
+    color: #FFFFFF;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 1px 1px 0 #000;
+    font-size: 24px; 
+    line-height: 1.1;
+    word-break: break-all;
+}
 
-@media screen and (max-width: 600px) {
-  .grid{
-    display: grid; 
-    grid-template-columns: 1fr; 
-    width: 90%;
- 
-    }
-    img{
-        height: 300px;
-    }
-
-    h1{
-        font-size: 50px;
-        text-align: center; 
-        max-width: 350px;   
-        margin: 10 auto; 
-    }
+.GridCell img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+    display: block;
 }
