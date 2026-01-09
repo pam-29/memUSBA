@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('styles/create.css') }}">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/25tvsKK9/Icon.png">
     <title>Choisis ton tableau</title>
 </head>
 <body>
