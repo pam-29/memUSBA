@@ -1,0 +1,82 @@
+body{
+    background-color: #5E239D;
+    color: #FFFFFF; 
+    text-transform: uppercase; 
+    font-family: Impact, sans-serif; 
+}
+
+h1{
+    font-size: 50px;
+    -webkit-text-stroke: 1px rgb(0, 0, 0); 
+    text-shadow: 2px 2px 0 #000000;
+}
+
+.container{
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid{
+    display: grid; 
+    grid-template-columns: 340px 340px; 
+    gap: 40px;
+}
+
+.button{
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #1E0737;
+    padding: 2%;
+    font-size: 20px;
+}
+
+img{
+    width: 336px;
+    height: 400px;
+    display: block;
+    object-fit: cover; 
+}
+
+.GridCell {
+    width: 336px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
+    background: #FFFFFF;
+    overflow: hidden;
+    margin-top: 10%;
+}
+
+.GridCell > div:first-child {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    overflow: hidden; /* Important pour le script */
+}
+
+.GridCell h2 {
+    margin: 0;
+    padding: 5px 10px;
+    text-align: center;
+    color: #FFFFFF;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 1px 1px 0 #000;
+    font-size: 24px; 
+    line-height: 1.1;
+    word-break: break-all;
+}
+
+.GridCell img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+    display: block;
+}
