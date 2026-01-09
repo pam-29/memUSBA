@@ -30,8 +30,8 @@
 
     <div class="input-container">
         <div>
-            <label for="text">Écris ton commentaire</label>
-            <textarea name="text" id="text" placeholder="Moi quand je me réveille le matin."></textarea>
+            <label for="text">Crée ton meme</label>
+            <textarea name="text" id="text" placeholder="Écris ton commentaire..."></textarea>
             <p id="wordError"  class="error"></p>
         </div>
         
@@ -74,7 +74,7 @@
 
     //moderation
     document.addEventListener('DOMContentLoaded', function() {
-    const bannedWords = ['hitler','nazi','kkk','heilhitler','white power','supremacie blanche','negro','nègre','negre','bougnoule','chinetoque','youpin','feuj','pd','pédé','pedé','tapette','tafiole','travelo','tranny','connard','connasse','salope','pute','enculé','batard','bâtard','filsdepute','fdp','ntm','tg','tagueule','viol','violeur','meurtre','assassiner','tuer','égorger','terroriste','djihad','jihad','islamiste','antisémite','antisemite','salejuif','sale arabe','salenoir','salegay','salepédé','lynchage','génocide','genocide','kys','kill yourself','nigga','bite', 'zizi', 'suicide', 'paf', 'cul']; 
+    const bannedWords = ['hitler','nazi','kkk','heilhitler','white power','supremacie blanche','negro','nègre','negre','bougnoule','chinetoque','youpin','feuj','pd','pédé','pedé','tapette','tafiole','travelo','tranny','connard','connasse','salope','pute','enculé','batard','bâtard','filsdepute','fdp','ntm','tg','tagueule','viol','violeur','meurtre','assassiner','tuer','égorger','terroriste','djihad','jihad','islamiste','antisémite','antisemite','salejuif','sale arabe','salenoir','salegay','salepédé','lynchage','génocide','genocide','kys','kill yourself','nigga','bite', 'zizi', 'suicide', 'paf', 'cul','homo','zezette']; 
     
     const form = document.querySelector('form');
     const textarea = document.getElementById('text');
@@ -82,8 +82,7 @@
 
     form.addEventListener('submit', function(event) {
         const originalText = textarea.value.toLowerCase();
-        const compressedText = originalText.replace(/\s+/g, ''); 
-        
+        const compressedText = originalText.replace(/\s+/g, '');         
         let wordFound = null;
 
         for (let word of bannedWords) {
