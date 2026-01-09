@@ -35,6 +35,71 @@ p{
     margin-top: 30px;
     margin-bottom: 25px;
 }
+/*background animation*/
+.wrapper span {
+    position: fixed;
+    bottom: -80px;
+    animation: animate 5s linear infinite;
+    font-size: 60px;
+    z-index: -1;
+}
+
+.wrapper span:nth-child(1){
+    left: 120px;
+    animation-delay: 0.0s;    
+}
+.wrapper span:nth-child(2){
+    right: 10%;
+    animation-delay: 2s;  
+}
+.wrapper span:nth-child(3){
+    right: 20%;
+    animation-delay: 1s;    
+}
+.wrapper span:nth-child(4){
+    left: 20%;
+    animation-delay: 2s;   
+}
+.wrapper span:nth-child(5){
+    left: 40%;
+    animation-delay: 1s;    
+}
+.wrapper span:nth-child(6){
+    left: 50%;
+    animation-delay: 3s;    
+}
+.wrapper span:nth-child(7){
+    left: 60%;
+    animation-delay: 1s;  
+}
+.wrapper span:nth-child(8){
+    left: 70%;
+    animation-delay: 4s;    
+}
+.wrapper span:nth-child(9){
+    left: 80%;
+    animation-delay: 1s;  
+}
+.wrapper span:nth-child(10){
+    left: 100%;
+    animation-delay: 2s;    
+}
+
+
+@keyframes animate{
+    0% {
+        transform: translateY(0);
+        opacity: 1
+    }
+    70%{
+        opacity: .6;
+    }
+    100% {
+        transform: translateY(-800px) rotate(360deg);	
+        opacity: 0
+    }
+}
+
 
 @media screen and (max-width: 600px){
     h1{
@@ -46,5 +111,8 @@ p{
     p{
         text-align: center; 
         max-width: 350px;   
+    }
+    .wrapper span {
+        font-size: 40px;
     }
 }

@@ -3,14 +3,14 @@ body{
     color: #FFFFFF; 
     text-transform: uppercase; 
     font-family: Impact, sans-serif; 
-    -webkit-text-stroke: 1px rgb(0, 0, 0); 
-    text-shadow: 2px 2px 0 #000000;
-
 }
 
 h1{
     font-size: 50px;
+    -webkit-text-stroke: 1px rgb(0, 0, 0); 
+    text-shadow: 2px 2px 0 #000000;
 }
+
 .container{
     max-width: 800px; 
     margin: 0 auto; 
@@ -22,9 +22,10 @@ h1{
 
 .grid{
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 20px;
+    grid-template-columns: 340px 340px; 
+    gap: 40px;
 }
+
 .button{
     text-decoration: none;
     color: #FFFFFF;
@@ -34,44 +35,45 @@ h1{
 }
 
 img{
-    width: 100%;
+    width: 336px;
     height: 400px;
     display: block;
 }
 
-.GridPosition{
+.GridCell{
     position: relative; 
     border: 2px solid #000000; 
     background: #FFFFFF;
+    -webkit-text-stroke: 1px rgb(0, 0, 0); 
+    text-shadow: 2px 2px 0 #000000;
     margin-top: 10%;
     block-size: fit-content;
 }
 
-.GridPosition h2{
+
+.GridCell h2{
+    width: auto;
     font-size: 24px;
-    margin: 1%;
-    height: auto;
+    margin: 4%;
+    height: auto; 
 }
-.TextPosition{
-    position: absolute; 
-    top: 10%; 
-    left: 0; 
-    width: 100%; 
-    text-align: center;
-}
+
 
 @media screen and (max-width: 600px) {
   .grid{
     display: grid; 
     grid-template-columns: 1fr; 
     width: 90%;
+ 
+    }
+    img{
+        height: 300px;
+    }
 
-
-    
-}
-img{
-    height: 300px;
-}
-
-
+    h1{
+        font-size: 50px;
+        text-align: center; 
+        max-width: 350px;   
+        margin: 10 auto; 
+    }
 }

@@ -7,6 +7,19 @@
     <title>MemUSBA</title>
 </head>
 <body>
+
+<div class="wrapper">
+		<span>😂</span>
+        <span>🤪</span>
+        <span>🤡</span>
+        <span>👻</span>
+        <span>😹</span>
+        <span>👾</span>
+        <span>🤖</span>
+        <span>🥸</span>
+</div>
+
+
     <h1>
         Bienvenue sur MemUSBA !
     </h1>

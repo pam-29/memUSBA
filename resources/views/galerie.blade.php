@@ -15,7 +15,7 @@
 
         <div class="grid">
             @foreach($memes as $meme)
-                <div class="GridPosition">
+                <div class="GridCell">
                     <div>
                         <h2>
                             {{ $meme->text }}
