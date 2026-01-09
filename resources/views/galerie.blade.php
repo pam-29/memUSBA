@@ -10,8 +10,7 @@
 <body>
     <div class="container">
         <h1>Galerie des Memes</h1>
-        <a href="{{ route('memes.create') }}" class="button" >← Créer un nouveau meme</a>
-
+        <a href="{{ route('memes.create') }}" class="button">← Créer un nouveau meme</a>
 
         <div class="grid">
             @foreach($memes as $meme)
@@ -26,5 +25,19 @@
             @endforeach
         </div>
     </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.GridCell h2').forEach(el => {
+                let fontSize = 24;
+                let container = el.parentElement;
+
+                while (el.scrollHeight > container.offsetHeight && fontSize > 10) {
+                    fontSize--;
+                    el.style.fontSize = fontSize + "px";
+                }
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>

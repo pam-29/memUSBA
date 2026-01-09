@@ -16,6 +16,10 @@ return new class extends Migration
             $table->integer('view')->default(0);
             $table->string('source');
             $table->timestamps();
+            $table->string('artist_name');
+            $table->string('painting_name'); //put in itallic in the frontend
+            $table->string('year');
+            $table->string('localisation'); //museum or reserve
         });
     }
 
