@@ -58,6 +58,16 @@ label{
     margin-top: 20px;
 }
 
+.error{
+    width: fit-content;
+    color: white; 
+    font-weight: bold; 
+    margin-top: 8px; 
+    display: none; 
+    background-color:red;
+    padding:1%;
+}
+
 .mySlides {
     display: none;
 }

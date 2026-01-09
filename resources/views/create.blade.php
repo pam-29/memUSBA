@@ -31,6 +31,7 @@
         <div>
             <label for="text">Écris ton commentaire</label>
             <textarea name="text" id="text" placeholder="Moi quand je me réveille le matin."></textarea>
+            <p id="wordError"  class="error"></p>
         </div>
         
         <button type="submit">VALIDER</button>
@@ -43,6 +44,7 @@
 
 
 <script>
+    //slider
     let slideIndex = 1;
     showSlides(slideIndex);
 
@@ -51,23 +53,60 @@
     }
 
     function showSlides(n) {
-        let slides = document.getElementsByClassName("mySlides");
-        let hiddenInput = document.getElementById("selected_portrait_id");
-        
-        if (n > slides.length) { slideIndex = 1 }    
-        if (n < 1) { slideIndex = slides.length }
+    let slides = document.getElementsByClassName("mySlides");
+    let hiddenInput = document.getElementById("selected_portrait_id");
+    
+    if (n > slides.length) { slideIndex = 1 }    
+    if (n < 1) { slideIndex = slides.length }
 
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove("active-slide");
-            slides[i].style.display = "none";
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active-slide");
+        slides[i].style.display = "none";
+    }
+
+    let currentSlide = slides[slideIndex - 1];
+    currentSlide.style.display = "block";
+    currentSlide.classList.add("active-slide");
+
+    let currentId = currentSlide.getAttribute("data-portrait-id");
+    hiddenInput.value = currentId;
+
+    //moderation
+    document.addEventListener('DOMContentLoaded', function() {
+    const bannedWords = ['hitler','nazi','kkk','heilhitler','white power','supremacie blanche','negro','nègre','negre','bougnoule','chinetoque','youpin','feuj','pd','pédé','pedé','tapette','tafiole','travelo','tranny','connard','connasse','salope','pute','enculé','batard','bâtard','filsdepute','fdp','ntm','tg','tagueule','viol','violeur','meurtre','assassiner','tuer','égorger','terroriste','djihad','jihad','islamiste','antisémite','antisemite','salejuif','sale arabe','salenoir','salegay','salepédé','lynchage','génocide','genocide','kys','kill yourself','nigga','bite', 'zizi', 'suicide', 'paf', 'cul']; 
+    
+    const form = document.querySelector('form');
+    const textarea = document.getElementById('text');
+    const errorMsg = document.getElementById('wordError');
+
+    form.addEventListener('submit', function(event) {
+        const originalText = textarea.value.toLowerCase();
+        const compressedText = originalText.replace(/\s+/g, ''); 
+        
+        let wordFound = null;
+
+        for (let word of bannedWords) {
+            const lowerWord = word.toLowerCase();
+            
+            if (originalText.includes(lowerWord) || compressedText.includes(lowerWord)) {
+                wordFound = word;
+                break;
+            }
         }
 
-        let currentSlide = slides[slideIndex - 1];
-        currentSlide.style.display = "block";
-        currentSlide.classList.add("active-slide");
+        if (wordFound) {
+            event.preventDefault();
+            errorMsg.innerHTML = `Le mot <strong>${wordFound}</strong> est interdit.`;
+            errorMsg.style.display = 'block';
+            textarea.style.borderColor = 'red';
+        }
+    });
 
-        let currentId = currentSlide.getAttribute("data-portrait-id");
-        hiddenInput.value = currentId;
+    textarea.addEventListener('input', function() {
+        errorMsg.style.display = 'none';
+        textarea.style.borderColor = '';
+    });
+});
 }
 </script>
 </body>
