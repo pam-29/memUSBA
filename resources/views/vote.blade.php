@@ -19,6 +19,7 @@
     </div>
     @endforeach
 
+<<<<<<< HEAD
     <div class="vote">
         <a onclick="plusSlides(1)">
             <div class="arrow">
@@ -38,39 +39,90 @@
     </div>
 
     <a href="{{ route('memes.create') }}" class="button">créer ton meme</a>
+=======
+    <div>
+        <a class="arrow" onclick="prevSlide()">&#10094;</a>
+        <a class="arrow" onclick="likeAndNext()">&#10095;</a>
+    </div>
+
+>>>>>>> b7a80be16dc6eac73d352882eb5790fc326703f0
 
 <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+document.addEventListener('DOMContentLoaded', () => {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".mySlides");
+    const hiddenInput = document.getElementById("selected_meme_id");
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n); 
+    if (slides.length === 0) return;
+
+    // Affiche la première slide
+    showSlide(slideIndex);
+
+    // Flèche gauche = next sans like
+    window.prevSlide = function() {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
     }
 
-    function showSlides(n) {
-        let slides = document.getElementsByClassName("mySlides");
-        let hiddenInput = document.getElementById("selected_meme_id");
-
-        if (n > slides.length) { 
-            slideIndex = 1; 
-        }    
-
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-            slides[i].classList.remove("active-slide");
-        }
-
-        let currentSlide = slides[slideIndex - 1];
-        if (currentSlide) {
-            currentSlide.style.display = "block";
-            currentSlide.classList.add("active-slide");
-
-            let currentId = currentSlide.getAttribute("data-meme-id");
-            if (hiddenInput) {
-                hiddenInput.value = currentId;
-            }
-        }
+    // Flèche droite = like + next
+    window.likeAndNext = function() {
+        likeCurrentMeme();
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
     }
+
+    function showSlide(index) {
+        slides.forEach(slide => {
+            slide.style.display = "none";
+            slide.classList.remove("active-slide");
+        });
+
+        const currentSlide = slides[index];
+        currentSlide.style.display = "block";
+        currentSlide.classList.add("active-slide");
+
+        const currentId = currentSlide.getAttribute("data-meme-id");
+        if (hiddenInput) hiddenInput.value = currentId;
+
+        // ➕ +1 view
+        addView(currentId);
+    }
+
+    function likeCurrentMeme() {
+        const memeId = hiddenInput?.value;
+        if (!memeId) return;
+
+        fetch("{{ route('memes.like') }}", {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({ meme_id: memeId })
+        }).catch(err => console.error("Like error:", err));
+    }
+
+    function addView(memeId) {
+        if (!memeId) return;
+
+        fetch("{{ route('memes.view') }}", {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({ meme_id: memeId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(!data.success) console.error("View not counted!");
+        })
+        .catch(err => console.error("View error:", err));
+    }
+});
 </script>
+
 </body>
 </html>
