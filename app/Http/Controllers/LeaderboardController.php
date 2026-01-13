@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meme;
+use Illuminate\Http\Request;
+
 class LeaderboardController extends Controller
 {
-    // public function leaderboard()
-    // {     
-    //     $memes = \App\Models\Meme::with('portrait')->latest()->get();        
-    //     return view('leaderboard', compact('memes'));
-    // }
-
     public function leaderboard()
-{
-    $memes = Meme::with('portrait')
-        ->orderByDesc('likes')
-        ->get();
+    {
+        // Récupère tous les memes triés par likes décroissants
+        $memes = Meme::with('portrait') // pour afficher aussi le portrait
+                     ->orderByDesc('likes')
+                     ->take(3)
+                     ->get();
 
-    return view('leaderboard', compact('memes'));
-}
-
+        return view('leaderboard', compact('memes'));
+    }
+    
 }
