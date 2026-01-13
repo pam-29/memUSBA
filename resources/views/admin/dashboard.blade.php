@@ -3,18 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
     <title>Admin - Modération</title>
-    <style>
-        body { background-color: #5d2da8; color: white; font-family: sans-serif; padding: 20px; }
-        .container { display: flex; gap: 20px; }
-        .list { flex: 1; background: white; color: black; padding: 15px; border-radius: 5px; max-height: 80vh; overflow-y: auto; }
-        .focus { flex: 1; background: #eee; color: black; padding: 20px; border-radius: 5px; text-align: center; }
-        .focus img { max-width: 100%; height: auto; border: 2px solid #000; }
-        .btn { padding: 15px 30px; border: none; cursor: pointer; color: white; font-weight: bold; margin: 10px; }
-        .btn-ban { background: #1a0b2e; }
-        .btn-ok { background: #28a745; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    </style>
 </head>
 <body>
 

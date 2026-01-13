@@ -20,12 +20,15 @@ Route::get('/vote', [MemeController::class, 'vote'])->name('memes.vote');
 // Leaderboard
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
 
+
+//page d'aide
+Route::view('/aide', 'help')->name('help');
+
 // Voter pour un meme avec like
 Route::post('/like', [MemeController::class, 'like'])->name('memes.like');
 
-//Pour les vues individuelles des memes
+// Pour les vues individuelles des memes
 Route::post('/memes/view', [MemeController::class, 'view'])->name('memes.view');
-
 
 // Admin routes
 Route::get('/admin/login', [MemeController::class, 'adminLogin'])->name('admin.login');
