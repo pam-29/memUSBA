@@ -65,4 +65,8 @@ php artisan db:seed --class=PortraitSeeder
 
 php artisan tinker
 App\Models\Portrait::all();
------------------
+
+Ne pas oublier de refaire le portrait seeder
+La base de données a était update
+
+------------------
