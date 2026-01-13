@@ -16,3 +16,15 @@ Route::get('/galerie', [MemeController::class, 'galerie'])->name('memes.galerie'
 
 // Leaderboard
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
+
+
+
+// Admin routes
+Route::get('/admin/login', [MemeController::class, 'adminLogin'])->name('admin.login');
+Route::post('/admin/login', [MemeController::class, 'adminAuth'])->name('admin.auth');
+
+Route::middleware([\App\Http\Middleware\AdminAuth::class])->group(function () {
+    Route::get('/admin/dashboard', [MemeController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::patch('/admin/meme/{id}/validate', [MemeController::class, 'validateMeme'])->name('admin.validate');
+    Route::delete('/admin/meme/{id}/delete', [MemeController::class, 'deleteMeme'])->name('admin.delete');
+});
