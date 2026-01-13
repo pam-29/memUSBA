@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addView(memeId) {
         if (!memeId) return;
 
-        fetch("{{ route('memes.view') }}", {  // ← singulier
+        fetch("{{ route('memes.view') }}", {
             method: "POST",
             headers: {
                 "X-CSRF-TOKEN": "{{ csrf_token() }}",

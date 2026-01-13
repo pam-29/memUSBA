@@ -45,17 +45,13 @@ class MemeController extends Controller
         return view('create', compact('portraits'));
     }
 
-    // public function vote(){
-    //     $memes = \App\Models\Meme::with('portrait')->latest()->get();  
-    //     return view('vote', compact('memes'));
-    // }
 
     public function vote()
     {
         $memes = \App\Models\Meme::with('portrait')
-            ->orderByRaw('RANDOM() / (view + 1)') // SQLite friendly
+            ->orderByRaw('RANDOM() / (view + 1)')
             ->get();
-             return view('vote', compact('memes'));
+            return view('vote', compact('memes'));
     }
 
     // Admin functions
