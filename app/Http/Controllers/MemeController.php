@@ -41,4 +41,9 @@ class MemeController extends Controller
         $portraits = Portrait::all();
         return view('create', compact('portraits'));
     }
+
+    public function vote(){
+        $memes = \App\Models\Meme::with('portrait')->latest()->get();  
+        return view('vote', compact('memes'));
+    }
 }

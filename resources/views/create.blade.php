@@ -39,7 +39,7 @@
     </div>
 </form>
 
-    <a href="{{ route('memes.galerie') }}" class="button-vote">
+    <a href="{{ route('memes.vote') }}" class="button-vote">
         voter sans créer
     </a>
 
