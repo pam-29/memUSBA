@@ -8,36 +8,40 @@
     <title>Choisis ton tableau</title>
 </head>
 <body>
-
-<h1>Choisis ton tableau</h1>
-
-<form action="{{ route('memes.store') }}" method="POST">
-    @csrf
-
-    <input type="hidden" name="portrait_id" id="selected_portrait_id" value="{{ $portraits[0]->id }}">
+    <div style="display:flex; gap:30px; align-items:center;">
+        <h1>Choisis ton tableau</h1>
+        <a href="{{route('help')}}" class="help">
+            <img src="/help.svg" alt="icone point d'interrogation pour une aide">
+        </a>
+    </div>
     
-    <div class="slider-container">
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <form action="{{ route('memes.store') }}" method="POST">
+        @csrf
 
-        @foreach($portraits as $index => $portrait)
-            <div class="mySlides fade {{ $index == 0 ? 'active' : '' }}" data-portrait-id="{{ $portrait->id }}">
-                <img src="{{ $portrait->source }}" class="slider-image">
-            </div>
-        @endforeach
-
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-
-    <div class="input-container">
-        <div>
-            <label for="text">Crée ton meme</label>
-            <textarea name="text" id="text" placeholder="Écris ton commentaire..."></textarea>
-            <p id="wordError"  class="error"></p>
-        </div>
+        <input type="hidden" name="portrait_id" id="selected_portrait_id" value="{{ $portraits[0]->id }}">
         
-        <button type="submit">VALIDER</button>
-    </div>
-</form>
+        <div class="slider-container">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
+            @foreach($portraits as $index => $portrait)
+                <div class="mySlides fade {{ $index == 0 ? 'active' : '' }}" data-portrait-id="{{ $portrait->id }}">
+                    <img src="{{ $portrait->source }}" class="slider-image" alt="portrait">
+                </div>
+            @endforeach
+
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="input-container">
+            <div>
+                <label for="text">Crée ton meme</label>
+                <textarea name="text" id="text" placeholder="Écris ton commentaire..."></textarea>
+                <p id="wordError"  class="error"></p>
+            </div>
+            
+            <button type="submit">VALIDER</button>
+        </div>
+    </form>
 
     <a href="{{ route('memes.vote') }}" class="button-vote">
         voter sans créer

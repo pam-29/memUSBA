@@ -19,3 +19,6 @@ Route::get('/vote', [MemeController::class, 'vote'])->name('memes.vote');
 
 // Leaderboard
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
+
+//page d'aide
+Route::view('/aide', 'help')->name('help');
