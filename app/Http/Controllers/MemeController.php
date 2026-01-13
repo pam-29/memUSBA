@@ -84,9 +84,10 @@ class MemeController extends Controller
         $meme->delete();
 
         return back()->with('success', 'Meme supprimé.');
+    }
+
     public function vote(){
         $memes = \App\Models\Meme::with('portrait')->latest()->get();  
         return view('vote', compact('memes'));
     }
-}
 }
