@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-box">
-        <h1>ADMINISTRATION</h1>
+        <h1>Connexion</h1>
         @if(session('error')) <p style="color: red;">{{ session('error') }}</p> @endif
         <form action="{{ route('admin.auth') }}" method="POST">
             @csrf

@@ -20,10 +20,8 @@ Route::get('/vote', [MemeController::class, 'vote'])->name('memes.vote');
 // Leaderboard
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
 
-<<<<<<< HEAD
 //page d'aide
 Route::view('/aide', 'help')->name('help');
-=======
 // Voter pour un meme avec like
 Route::post('/like', [MemeController::class, 'like'])->name('memes.like');
 
@@ -39,4 +37,3 @@ Route::middleware([\App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::patch('/admin/meme/{id}/validate', [MemeController::class, 'validateMeme'])->name('admin.validate');
     Route::delete('/admin/meme/{id}/delete', [MemeController::class, 'deleteMeme'])->name('admin.delete');
 });
->>>>>>> b7a80be16dc6eac73d352882eb5790fc326703f0

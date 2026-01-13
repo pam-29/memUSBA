@@ -19,7 +19,6 @@
     </div>
     @endforeach
 
-<<<<<<< HEAD
     <div class="vote">
         <a onclick="plusSlides(1)">
             <div class="arrow">
@@ -39,13 +38,6 @@
     </div>
 
     <a href="{{ route('memes.create') }}" class="button">créer ton meme</a>
-=======
-    <div>
-        <a class="arrow" onclick="prevSlide()">&#10094;</a>
-        <a class="arrow" onclick="likeAndNext()">&#10095;</a>
-    </div>
-
->>>>>>> b7a80be16dc6eac73d352882eb5790fc326703f0
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {

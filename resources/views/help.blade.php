@@ -41,10 +41,12 @@
         </div>
         
         <div class="logo">
-            <img src="/logommi.png" alt="logo mmi">
-            <img src="/logomusba.png" alt="logo memUSBA">
+            <div>
+                <img src="/logommi.png" alt="logo mmi">
+                <img src="/logomusba.png" alt="logo memUSBA">
+            </div>
+            <img src="/bacchanight.svg" alt="logo bacchanight" class="logo-bacc">
         </div>
     </div>
-    
 </body>
 </html>

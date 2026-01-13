@@ -9,7 +9,7 @@
 <body>
 
 <div class="header">
-    <h1>MEMES À VALIDER ({{ $memes->count() }})</h1>
+    <h1>Memes restants : {{ $memes->count() }}</h1>
 </div>
 
 <div class="container">
@@ -25,10 +25,12 @@
     <div class="focus">
         @if($memes->count() > 0)
             @php $current = $memes->first(); @endphp
-            <h2>Texte : {{ $current->text }}</h2>
-            <img src="{{ $current->portrait->source }}">
+            <div class="meme">
+                <h2>Texte : {{ $current->text }}</h2>
+                <img src="{{ $current->portrait->source }}">
+            </div>
             
-            <div style="margin-top: 20px; display: flex; justify-content: center;">
+            <div class="btn-container">
                 <form action="{{ route('admin.delete', $current->id) }}" method="POST">
                     @csrf @method('DELETE')
                     <button type="submit" class="btn btn-ban">BAN</button>

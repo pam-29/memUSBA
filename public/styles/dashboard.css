@@ -1,13 +1,78 @@
-/*
-    <style>
-        background-color: #5d2da8; color: white; font-family: sans-serif; padding: 20px; }
-        .container { display: flex; gap: 20px; }
-        .list { flex: 1; background: white; color: black; padding: 15px; border-radius: 5px; max-height: 80vh; overflow-y: auto; }
-        .focus { flex: 1; background: #eee; color: black; padding: 20px; border-radius: 5px; text-align: center; }
-        .focus img { max-width: 100%; height: auto; border: 2px solid #000; }
-        .btn { padding: 15px 30px; border: none; cursor: pointer; color: white; font-weight: bold; margin: 10px; }
-        .btn-ban { background: #1a0b2e; }
-        .btn-ok { background: #28a745; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; } 
-    </style>
-*/
+body{
+    text-transform: uppercase;
+    background-color: #5E239D;
+    color: #fff;
+    font-family: Impact, sans-serif;
+    margin: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    gap: 100px;
+    margin-top: 30px;
+}
+
+.focus img{
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+}
+
+.meme{
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
+    background: #FFFFFF;
+    color: #000;
+    overflow: hidden;
+}
+
+.meme h2{
+    word-break: break-all;
+}
+
+.btn-container{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn{
+    padding: 10px 40px;
+    border: none;
+    color: #fff;
+}
+
+.btn-ban{
+    background-color: #E00000;
+}
+
+.btn-ok{
+    background-color: #007508;
+}
+
+.btn:hover{
+    opacity: 70%;
+}
+
+
+@media screen and (max-width:700px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .meme{
+        width: 250px;
+        height: 300px;
+    }
+
+    .btn-container{
+        gap: 20px;
+    }
+}
