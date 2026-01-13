@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Portrait;
 use App\Models\Meme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class MemeController extends Controller
 {
@@ -86,14 +88,34 @@ class MemeController extends Controller
         return back()->with('success', 'Meme validé et publié !');
     }
 
+    // public function deleteMeme($id)
+    // {
+    //     $meme = \App\Models\Meme::findOrFail($id);
+    //     $meme->delete();
+
+    //     return back()->with('success', 'Meme supprimé.');
+    // }
+
     public function deleteMeme($id)
     {
-        $meme = \App\Models\Meme::findOrFail($id);
+        $meme = Meme::findOrFail($id);
+
+        // Copier le meme dans la table corbeille
+        DB::table('corbeille')->insert([
+            'text' => $meme->text,
+            'likes' => $meme->likes,
+            'view' => $meme->view,
+            'portrait_id' => $meme->portrait_id,
+            'public' => $meme->public,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Supprimer le meme de la table memes
         $meme->delete();
 
-        return back()->with('success', 'Meme supprimé.');
+        return back()->with('success', 'Meme déplacé dans la corbeille.');
     }
-
  
 
     public function like(Request $request)
