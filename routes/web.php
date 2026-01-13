@@ -14,8 +14,14 @@ Route::post('/memes', [MemeController::class, 'store'])->name('memes.store');
 // Galerie de memes
 Route::get('/galerie', [MemeController::class, 'galerie'])->name('memes.galerie');
 
-// Voter les memes
+// Page de vote
 Route::get('/vote', [MemeController::class, 'vote'])->name('memes.vote');
 
 // Leaderboard
 Route::get('/leaderboard', [LeaderboardController::class, 'leaderboard'])->name('leaderboard');
+
+// Voter pour un meme avec like
+Route::post('/like', [MemeController::class, 'like'])->name('memes.like');
+
+//Pour les vues individuelles des memes
+Route::post('/memes/view', [MemeController::class, 'view'])->name('memes.view');

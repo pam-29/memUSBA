@@ -42,8 +42,42 @@ class MemeController extends Controller
         return view('create', compact('portraits'));
     }
 
-    public function vote(){
-        $memes = \App\Models\Meme::with('portrait')->latest()->get();  
+    // public function vote(){
+    //     $memes = \App\Models\Meme::with('portrait')->latest()->get();  
+    //     return view('vote', compact('memes'));
+    // }
+
+    public function vote()
+    {
+        $memes = \App\Models\Meme::with('portrait')
+            ->orderByRaw('RANDOM() / (view + 1)') // SQLite friendly
+            ->get();
+
         return view('vote', compact('memes'));
     }
+
+    public function like(Request $request)
+        {
+            $request->validate([
+                'meme_id' => 'required|exists:memes,id'
+            ]);
+
+            Meme::where('id', $request->meme_id)->increment('likes');
+
+            return response()->json(['success' => true]);
+        }
+
+
+
+    public function view(Request $request)
+    {
+        $request->validate([
+            'meme_id' => 'required|exists:memes,id'
+        ]);
+
+        Meme::where('id', $request->meme_id)->increment('view');
+
+        return response()->json(['success' => true]);
+    }
+
 }
