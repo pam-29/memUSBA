@@ -55,5 +55,10 @@
 
         </div>
     </div>
+
+
+    <script>
+        setTimeout(() => location.reload(), 120000);
+    </script>
 </body>
 </html>
