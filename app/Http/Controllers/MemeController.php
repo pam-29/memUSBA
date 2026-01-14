@@ -51,6 +51,7 @@ class MemeController extends Controller
     public function vote()
     {
         $memes = \App\Models\Meme::with('portrait')
+            ->where('public', true)
             ->orderByRaw('RANDOM() / (view + 1)')
             ->get();
             return view('vote', compact('memes'));
