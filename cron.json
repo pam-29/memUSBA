@@ -1,9 +1,0 @@
-{
-    "jobs": [
-    {
-        "command": "php artisan schedule:run",
-        "schedule": "* * * * *",
-        "size": "M"
-    }
-    ]
-}
