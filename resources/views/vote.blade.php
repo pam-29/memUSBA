@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/25tvsKK9/Icon.png">
-    <link rel="stylesheet" href="styles/vote.css">
+    <link rel="stylesheet" href="/styles/vote.css">
     <title>Vote</title>
 </head>
 <body>
