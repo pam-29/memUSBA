@@ -11,18 +11,26 @@
 <body>
     <h1>à toi de voter</h1>
 
-    @if($memes->count() > 0)
+        @if($memes->count() > 0)
         <input type="hidden" name="portrait_id" id="selected_meme_id" value="{{ $memes[0]->id }}">
 
         @foreach($memes as $meme)
-        <div class="mySlides" data-meme-id="{{$meme->id}}">
+        <div class="mySlides" data-meme-id="{{$meme->id}}" style="display: none;">
             <h2>{{$meme->text}}</h2> 
             <img src="{{ $meme->portrait->source }}" alt="" class="image">
         </div>
         @endforeach
 
-        <div class="vote">
-            <a onclick="likeAndNext()">
+        <div id="voteLimitModal">
+            <div class="modal-content">
+                <h2 style="color: white;">Limite atteinte ! ✋</h2>
+                <p style="color: #ccc;">Tu as voté 5 fois. Crée un meme pour débloquer la suite !</p>
+                <a href="{{ route('memes.create') }}" class="button" style="display:inline-block; margin-top:20px; background:#ff4757; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;">Créer mon Meme</a>
+            </div>
+        </div>
+
+        <div class="vote" id="voteButtons">
+            <a onclick="likeAndNext()" style="cursor: pointer;">
                 <div class="arrow">
                     &#10094;
                     <p>❤️</p>
@@ -31,7 +39,7 @@
 
             <p style="font-size: 30px;">/</p>
 
-            <a onclick="prevSlide()">
+            <a onclick="prevSlide()" style="cursor: pointer;">
                 <div class="arrow">
                     <p>💔</p>    
                     &#10095;
@@ -41,7 +49,6 @@
     @else
         <div style="text-align: center; padding: 50px;">
             <p>Il n'y a pas encore de memes à voter !</p>
-            <p>Sois le premier à en créer un.</p>
         </div>
     @endif
 
@@ -57,40 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slides.length === 0) return;
 
-    // compteur de like
-
-    let voteCount = parseInt(localStorage.getItem('voteCount')) || 0;
-
-    function checkVoteLimit() {
-        if (voteCount >= (5)) {
-            voteButtons.style.display = "none";
-            modal.style.display = "flex";   // mettre la pop up ici
-        }
-    }
-
-    checkVoteLimit();
-
-    window.prevSlide = function() {
-        incrementVote();
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlide(slideIndex);
-    }
-
-    window.likeAndNext = function() {
-        incrementVote();
-        likeCurrentMeme();
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlide(slideIndex);
-    }
-
-    function incrementVote
-    {
-        voteCount++;
-        localStorage.setItem('vote_count', voteCount);
-        checkVoteLimit();
-    }
-
-    // -----------------
+    let voteCount = parseInt(localStorage.getItem('vote_count')) || 0;
 
     function showSlide(index) {
         slides.forEach(slide => {
@@ -99,44 +73,78 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const currentSlide = slides[index];
-        currentSlide.style.display = "block";
-        currentSlide.classList.add("active-slide");
+        if (currentSlide) {
+            currentSlide.style.display = "block";
+            currentSlide.classList.add("active-slide");
+            const currentId = currentSlide.getAttribute("data-meme-id");
+            if (hiddenInput) hiddenInput.value = currentId;
+            addView(currentId);
+        }
+    }
 
-        const currentId = currentSlide.getAttribute("data-meme-id");
-        if (hiddenInput) hiddenInput.value = currentId;
+    function checkVoteLimit() {
+        if (voteCount >= 5) {
+            if(voteButtons) voteButtons.style.display = 'none';
+            if(modal) modal.style.display = 'flex';
+            return true;
+        }
+        return false;
+    }
 
-        addView(currentId);
+    window.prevSlide = function() {
+        if (checkVoteLimit()) return;
+        
+        voteCount++;
+        localStorage.setItem('vote_count', voteCount);
+        
+        if (!checkVoteLimit()) {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+        }
+    }
+
+    window.likeAndNext = function() {
+        if (checkVoteLimit()) return;
+
+        likeCurrentMeme();
+        
+        voteCount++;
+        localStorage.setItem('vote_count', voteCount);
+        
+        if (!checkVoteLimit()) {
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
+        }
     }
 
     function likeCurrentMeme() {
         const memeId = hiddenInput?.value;
         if (!memeId) return;
-
         fetch("{{ route('memes.like') }}", {
             method: "POST",
             headers: {
                 "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ meme_id: memeId })
-        }).catch(err => console.error("Like error:", err));
+        });
     }
 
     function addView(memeId) {
-        if (!memeId) return;
         fetch("{{ route('memes.view') }}", {
             method: "POST",
             headers: {
                 "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ meme_id: memeId })
-        }).catch(err => console.error("View error:", err));
+        });
+    }
+
+    if (!checkVoteLimit()) {
+        showSlide(slideIndex);
     }
 });
 </script>
-
 </body>
 </html>
