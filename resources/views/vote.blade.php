@@ -10,32 +10,39 @@
 <body>
     <h1>à toi de voter</h1>
 
-    <input type="hidden" name="portrait_id" id="selected_meme_id" value="{{ $memes[0]->id }}">
+    @if($memes->count() > 0)
+        <input type="hidden" name="portrait_id" id="selected_meme_id" value="{{ $memes[0]->id }}">
 
-    @foreach($memes as $meme)
-    <div class="mySlides" data-meme-id="{{$meme->id}}">
-        <h2>{{$meme->text}}</h2> 
-        <img src="{{ $meme->portrait->source }}" alt="" class="image">
-    </div>
-    @endforeach
+        @foreach($memes as $meme)
+        <div class="mySlides" data-meme-id="{{$meme->id}}">
+            <h2>{{$meme->text}}</h2> 
+            <img src="{{ $meme->portrait->source }}" alt="" class="image">
+        </div>
+        @endforeach
 
-    <div class="vote">
-        <a onclick="likeAndNext()">
-            <div class="arrow">
-                &#10094;
-                <p>❤️</p>
-            </div>
-        </a>
+        <div class="vote">
+            <a onclick="likeAndNext()">
+                <div class="arrow">
+                    &#10094;
+                    <p>❤️</p>
+                </div>
+            </a>
 
-        <p style="font-size: 30px;">/</p>
+            <p style="font-size: 30px;">/</p>
 
-        <a onclick="prevSlide()">
-            <div class="arrow">
-                <p>💔</p>    
-                &#10095;
-            </div>
-        </a>
-    </div>
+            <a onclick="prevSlide()">
+                <div class="arrow">
+                    <p>💔</p>    
+                    &#10095;
+                </div>
+            </a>
+        </div>
+    @else
+        <div style="text-align: center; padding: 50px;">
+            <p>Il n'y a pas encore de memes à voter !</p>
+            <p>Sois le premier à en créer un.</p>
+        </div>
+    @endif
 
     <a href="{{ route('memes.create') }}" class="button">créer ton meme</a>
 
@@ -47,16 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slides.length === 0) return;
 
-    // Affiche la première slide
     showSlide(slideIndex);
 
-    // Flèche gauche = next sans like
     window.prevSlide = function() {
         slideIndex = (slideIndex + 1) % slides.length;
         showSlide(slideIndex);
     }
 
-    // Flèche droite = like + next
     window.likeAndNext = function() {
         likeCurrentMeme();
         slideIndex = (slideIndex + 1) % slides.length;
@@ -76,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentId = currentSlide.getAttribute("data-meme-id");
         if (hiddenInput) hiddenInput.value = currentId;
 
-        // ➕ +1 view
         addView(currentId);
     }
 

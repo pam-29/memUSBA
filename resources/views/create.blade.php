@@ -18,7 +18,7 @@
     <form action="{{ route('memes.store') }}" method="POST">
         @csrf
 
-        <input type="hidden" name="portrait_id" id="selected_portrait_id" value="{{ $portraits[0]->id }}">
+        <input type="hidden" name="portrait_id" id="selected_portrait_id" value="{{ $portraits->first()->id ?? '' }}">
         
         <div class="slider-container">
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
