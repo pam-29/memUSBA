@@ -15,11 +15,19 @@
 <div class="container">
     <div class="list">
         <h3>En attente :</h3>
-        @foreach($memes as $m)
-            <div style="border-bottom: 1px solid #ccc; padding: 5px;">
-                <strong>#{{ $m->id }}</strong> - {{ Str::limit($m->text, 30) }}
-            </div>
-        @endforeach
+        <div class="grid">
+                @foreach($memes as $m)
+                <div>
+                    <div>
+                        <strong>#{{ $m->id }} - {{ Str::limit($m->text, 30) }}</strong>
+                    </div>
+                    <img src="{{ $m->portrait->source }}" alt="">
+                </div>
+                    
+                
+                @endforeach
+        </div>
+        
     </div>
 
     <div class="focus">
@@ -42,7 +50,7 @@
                 </form>
             </div>
         @else
-            <h2 style="color: #666;">Bravo ! Plus rien à modérer.</h2>
+            <h2 style="color: #fff;">Bravo ! Plus rien à modérer.</h2>
         @endif
     </div>
 </div>

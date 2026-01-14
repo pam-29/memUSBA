@@ -82,8 +82,10 @@ label{
 }
 
 .slider-image {
-    width: 350px;
+    width: 450px;
     height: 500px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .slider-container{
@@ -123,8 +125,8 @@ label{
 
 @media screen and (max-width:600px) {
     .slider-image {
-        width: 150px;
-        height: 200px;
+        width: 200px;
+        height: 300px;
     }
 
     .prev,

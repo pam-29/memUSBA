@@ -30,6 +30,22 @@ body{
     background: #FFFFFF;
     color: #000;
     overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid img{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 10px;
 }
 
 .meme h2{
@@ -60,7 +76,6 @@ body{
 .btn:hover{
     opacity: 70%;
 }
-
 
 @media screen and (max-width:700px) {
     .container{
