@@ -37,7 +37,7 @@
     <div class="container">
         <p>ou viens voter le meme des autres pour t’inspirer</p>
     
-        <a href="{{ route('memes.galerie') }}" class="button">
+        <a href="{{ route('memes.vote') }}" class="button">
             VOTER SANS CRÉER
         </a>
     </div>
