@@ -11,7 +11,7 @@
 <body>
     <h1>à toi de voter</h1>
 
-        @if($memes->count() > 0)
+    @if($memes->count() > 0)
         <input type="hidden" name="portrait_id" id="selected_meme_id" value="{{ $memes[0]->id }}">
 
         @foreach($memes as $meme)
@@ -21,14 +21,6 @@
         </div>
         @endforeach
 
-        <div id="voteLimitModal">
-            <div class="modal-content">
-                <h2 style="color: white;">Limite atteinte ! ✋</h2>
-                <p style="color: #ccc;">Tu as voté 5 fois. Crée un meme pour débloquer la suite !</p>
-                <a href="{{ route('memes.create') }}" class="button" style="display:inline-block; margin-top:20px; background:#ff4757; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;">Créer mon Meme</a>
-            </div>
-        </div>
-
         <div class="vote" id="voteButtons">
             <a onclick="likeAndNext()" style="cursor: pointer;">
                 <div class="arrow">
@@ -36,9 +28,7 @@
                     <p>❤️</p>
                 </div>
             </a>
-
             <p style="font-size: 30px;">/</p>
-
             <a onclick="prevSlide()" style="cursor: pointer;">
                 <div class="arrow">
                     <p>💔</p>    
@@ -52,7 +42,7 @@
         </div>
     @endif
 
-    <a href="{{ route('memes.create') }}" class="button">créer ton meme</a>
+    <a href="{{ route('memes.create') }}" class="button">créer ton meme pour voter plus</a>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -60,60 +50,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll(".mySlides");
     const hiddenInput = document.getElementById("selected_meme_id");
     const voteButtons = document.getElementById("voteButtons");
-    const modal = document.getElementById("voteLimitModal");
 
     if (slides.length === 0) return;
 
     let voteCount = parseInt(localStorage.getItem('vote_count')) || 0;
 
-    function showSlide(index) {
-        slides.forEach(slide => {
-            slide.style.display = "none";
-            slide.classList.remove("active-slide");
-        });
+    function checkLimitAndHide() {
+        if (voteCount >= 5) {
+            if (voteButtons) voteButtons.style.display = 'none';
+            return true;
+        }
+        return false;
+    }
 
+    function showSlide(index) {
+        slides.forEach(slide => slide.style.display = "none");
         const currentSlide = slides[index];
         if (currentSlide) {
             currentSlide.style.display = "block";
-            currentSlide.classList.add("active-slide");
             const currentId = currentSlide.getAttribute("data-meme-id");
             if (hiddenInput) hiddenInput.value = currentId;
             addView(currentId);
         }
     }
 
-    function checkVoteLimit() {
-        if (voteCount >= 5) {
-            if(voteButtons) voteButtons.style.display = 'none';
-            if(modal) modal.style.display = 'flex';
-            return true;
-        }
-        return false;
-    }
-
     window.prevSlide = function() {
-        if (checkVoteLimit()) return;
-        
-        voteCount++;
-        localStorage.setItem('vote_count', voteCount);
-        
-        if (!checkVoteLimit()) {
-            slideIndex = (slideIndex + 1) % slides.length;
-            showSlide(slideIndex);
+        if (voteCount < 5) {
+            voteCount++;
+            localStorage.setItem('vote_count', voteCount);
+            
+            if (!checkLimitAndHide()) {
+                slideIndex = (slideIndex + 1) % slides.length;
+                showSlide(slideIndex);
+            }
         }
     }
 
     window.likeAndNext = function() {
-        if (checkVoteLimit()) return;
-
-        likeCurrentMeme();
-        
-        voteCount++;
-        localStorage.setItem('vote_count', voteCount);
-        
-        if (!checkVoteLimit()) {
-            slideIndex = (slideIndex + 1) % slides.length;
-            showSlide(slideIndex);
+        if (voteCount < 5) {
+            likeCurrentMeme();
+            voteCount++;
+            localStorage.setItem('vote_count', voteCount);
+            
+            if (!checkLimitAndHide()) {
+                slideIndex = (slideIndex + 1) % slides.length;
+                showSlide(slideIndex);
+            }
         }
     }
 
@@ -141,9 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (!checkVoteLimit()) {
-        showSlide(slideIndex);
-    }
+    showSlide(slideIndex);
+    checkLimitAndHide();
 });
 </script>
 </body>

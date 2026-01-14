@@ -16,7 +16,7 @@
         </a>
     </div>
     
-    <form action="{{ route('memes.store') }}" method="POST">
+    <form action="{{ route('memes.store') }}" method="POST" onsubmit="resetVoteCounter()">
         @csrf
 
         <input type="hidden" name="portrait_id" id="selected_portrait_id" value="{{ $portraits->first()->id ?? '' }}">
@@ -51,7 +51,9 @@
 
 <script>
     // remet compteur a 0 pour la limite de votes
-    localStorage.removeItem('vote_Count');
+    function resetVoteCounter() {
+        localStorage.removeItem('vote_count');
+    }
 
     //slider
     let slideIndex = 1;
