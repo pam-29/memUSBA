@@ -2,8 +2,8 @@
     "jobs": [
     {
         "command": "php artisan schedule:run",
-        "size": "M",
-        "schedule": "* * * * *"
+        "schedule": "* * * * *",
+        "size": "M"
     }
     ]
 }
