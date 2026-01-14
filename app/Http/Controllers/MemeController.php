@@ -29,7 +29,7 @@ class MemeController extends Controller
             'public' => false,
         ]);
 
-        return redirect()->route('memes.galerie')->with('success', 'Meme créé ! Il est en attente de validation.');
+        return redirect()->route('memes.vote')->with('success', 'Meme créé ! Il est en attente de validation.');
     }
 
     public function galerie()
