@@ -92,19 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // -----------------
 
-    showSlide(slideIndex);
-
-    window.prevSlide = function() {
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlide(slideIndex);
-    }
-
-    window.likeAndNext = function() {
-        likeCurrentMeme();
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlide(slideIndex);
-    }
-
     function showSlide(index) {
         slides.forEach(slide => {
             slide.style.display = "none";
@@ -138,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addView(memeId) {
         if (!memeId) return;
-
         fetch("{{ route('memes.view') }}", {
             method: "POST",
             headers: {
@@ -147,12 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Accept": "application/json"
             },
             body: JSON.stringify({ meme_id: memeId })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(!data.success) console.error("View not counted!");
-        })
-        .catch(err => console.error("View error:", err));
+        }).catch(err => console.error("View error:", err));
     }
 });
 </script>
