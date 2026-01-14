@@ -20,7 +20,7 @@
     @endforeach
 
     <div class="vote">
-        <a onclick="plusSlides(1)">
+        <a onclick="likeAndNext()">
             <div class="arrow">
                 &#10094;
                 <p>❤️</p>
@@ -29,7 +29,7 @@
 
         <p style="font-size: 30px;">/</p>
 
-        <a onclick="plusSlides(1)">
+        <a onclick="prevSlide()">
             <div class="arrow">
                 <p>💔</p>    
                 &#10095;
