@@ -50,6 +50,9 @@
 
 
 <script>
+    // remet compteur a 0 pour la limite de votes
+    localStorage.removeItem('vote_Count');
+
     //slider
     let slideIndex = 1;
     showSlides(slideIndex);

@@ -52,8 +52,45 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideIndex = 0;
     const slides = document.querySelectorAll(".mySlides");
     const hiddenInput = document.getElementById("selected_meme_id");
+    const voteButtons = document.getElementById("voteButtons");
+    const modal = document.getElementById("voteLimitModal");
 
     if (slides.length === 0) return;
+
+    // compteur de like
+
+    let voteCount = parseInt(localStorage.getItem('voteCount')) || 0;
+
+    function checkVoteLimit() {
+        if (voteCount >= (5)) {
+            voteButtons.style.display = "none";
+            modal.style.display = "flex";   // mettre la pop up ici
+        }
+    }
+
+    checkVoteLimit();
+
+    window.prevSlide = function() {
+        incrementVote();
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+    }
+
+    window.likeAndNext = function() {
+        incrementVote();
+        likeCurrentMeme();
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+    }
+
+    function incrementVote
+    {
+        voteCount++;
+        localStorage.setItem('vote_count', voteCount);
+        checkVoteLimit();
+    }
+
+    // -----------------
 
     showSlide(slideIndex);
 
