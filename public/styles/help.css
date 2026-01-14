@@ -2,7 +2,6 @@ body{
     background-color: #5E239D;
     color: #fff;
     margin: 0 20px;
-    font-family: Impact, sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,10 +36,12 @@ h1, h2{
     margin-bottom: 0;
     -webkit-text-stroke:1px rgb(0,0,0);
     text-shadow: 2px 2px 0 #000000;
+    font-family: 'impact', sans-serif;
 }
 
 p{
     letter-spacing: 1px;
+    font-family: 'roboto', sans-serif;
 }
 
 .credit{

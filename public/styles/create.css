@@ -5,7 +5,7 @@ body{
     align-items: center;
     background-color: #5E239D;
     color: #fff;
-    font-family: Impact, sans-serif;
+    font-family: 'impact', sans-serif;
 }
 
 h1, label{
@@ -56,7 +56,7 @@ label{
     border: none;
     text-decoration: none;
     cursor: pointer;
-    font-family: Impact, sans-serif;
+    font-family: 'impact', sans-serif;
 }
 
 .input-container button{

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'impact';
+    src: url('/fonts/impact.ttf') format('ttf'),
+        url('/fonts/Impact.woff') format('woff');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'roboto';
+    src: url('/fonts/Roboto-Medium.ttf') format('ttf'),
+        url('/fonts/Roboto-Medium.woff') format('woff');
+    font-weight: normal;
+}

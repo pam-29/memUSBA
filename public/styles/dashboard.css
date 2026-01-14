@@ -2,7 +2,7 @@ body{
     text-transform: uppercase;
     background-color: #5E239D;
     color: #fff;
-    font-family: Impact, sans-serif;
+    font-family: 'impact', sans-serif;
     margin: 30px 50px;
     display: flex;
     flex-direction: column;

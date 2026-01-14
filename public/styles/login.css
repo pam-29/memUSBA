@@ -2,7 +2,7 @@ body{
     background-color: #5E239D;
     color: #fff;
     margin: 0 20px;
-    font-family: Impact, sans-serif;
+    font-family: 'impact', sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;

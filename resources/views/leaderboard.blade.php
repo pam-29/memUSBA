@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/leaderboard.css'">
+    <link rel="stylesheet" href="/styles/leaderboard.css">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/25tvsKK9/Icon.png">
+    <link rel="stylesheet" href="/styles/font.css">
     <title>Leaderboard</title>
 </head>
 

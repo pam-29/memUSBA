@@ -2,7 +2,7 @@ body{
     background-color: #5E239D;
     color: #FFFFFF; 
     text-transform: uppercase; 
-    font-family: Impact, sans-serif; 
+    font-family: 'impact', sans-serif; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,6 +53,6 @@ body{
     border: none;
     text-decoration: none;
     cursor: pointer;
-    font-family: Impact, sans-serif;
+    font-family: 'impact', sans-serif;
 }
     
