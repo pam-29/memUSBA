@@ -61,12 +61,19 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ---add portrait--
+Pour lancer la base de donné il faut:
+php artisan migrate:fresh
+
+puis:
+php artisan migrate
+
+et enfin:
 php artisan db:seed --class=PortraitSeeder
 
+------------------
+
+si ca fonctionne pas alors:
 php artisan tinker
 App\Models\Portrait::all();
-
-Ne pas oublier de refaire le portrait seeder
-La base de données a était update
 
 ------------------

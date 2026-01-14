@@ -88,19 +88,11 @@ class MemeController extends Controller
         return back()->with('success', 'Meme validé et publié !');
     }
 
-    // public function deleteMeme($id)
-    // {
-    //     $meme = \App\Models\Meme::findOrFail($id);
-    //     $meme->delete();
-
-    //     return back()->with('success', 'Meme supprimé.');
-    // }
 
     public function deleteMeme($id)
     {
         $meme = Meme::findOrFail($id);
 
-        // Copier le meme dans la table corbeille
         DB::table('corbeille')->insert([
             'text' => $meme->text,
             'likes' => $meme->likes,
@@ -111,12 +103,11 @@ class MemeController extends Controller
             'updated_at' => now(),
         ]);
 
-        // Supprimer le meme de la table memes
         $meme->delete();
 
         return back()->with('success', 'Meme déplacé dans la corbeille.');
     }
- 
+
 
     public function like(Request $request)
         {
