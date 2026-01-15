@@ -7,10 +7,12 @@
     <link rel="icon" type="image/png" href="https://i.postimg.cc/25tvsKK9/Icon.png">
     <link rel="stylesheet" href="/styles/font.css">
     <title>Choisis ton tableau</title>
+
+    
 </head>
 <body>
     <div style="display:flex;">
-        <h1>Choisis ton tableau</h1>
+        <h1>Choisis ton tableau et crée ton meme</h1>
         <a href="{{route('help')}}" class="help">
             <img src="/help.svg" alt="icone point d'interrogation pour une aide">
         </a>
@@ -40,7 +42,16 @@
                 <p id="wordError"  class="error"></p>
             </div>
             
-            <button type="submit">VALIDER</button>
+           <div id="confirmModal" class="modal">
+            <div class="modal-content">
+                <h2>Confirmation</h2>
+                <p>Es-tu sûr de vouloir créer ce meme ?</p>
+
+                <button type="submit">Valider</button>
+                <button type="button" id="cancelBtn">Annuler</button>
+            </div>
+        </div>
+            <button type="submit" id="submitMeme">Créer le meme</button>
         </div>
     </form>
 

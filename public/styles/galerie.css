@@ -3,6 +3,8 @@ body{
     color: #FFFFFF; 
     text-transform: uppercase; 
     font-family: 'impact', sans-serif; 
+    touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 h1{
@@ -59,7 +61,7 @@ img{
     align-items: center;
     justify-content: center;
     background: #FFFFFF;
-    overflow: hidden; /* Important pour le script */
+    overflow: hidden;
 }
 
 .GridCell h2 {

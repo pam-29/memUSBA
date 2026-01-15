@@ -27,7 +27,7 @@
     </h1>
 
     <div class="container">
-        <p>Viens créer ton propre meme et atteindre le podium</p>
+        <p>Viens créer ton propre meme et atteindre le podium.</p>
 
         <a href="{{ route('memes.create') }}" class="button"> 
             COMMENCER
@@ -35,7 +35,7 @@
     </div>
 
     <div class="container">
-        <p>ou viens voter le meme des autres pour t’inspirer</p>
+        <p>Ou viens voter le meme des autres pour t’inspirer.</p>
     
         <a href="{{ route('memes.vote') }}" class="button">
             VOTER SANS CRÉER

@@ -29,9 +29,25 @@ p{
     flex-direction: column;
 }
 
+.meme{
+    width: 270px;
+    height: 350px;
+    border: 2px solid #000;
+    background: #FFFFFF;
+    overflow: hidden;
+    color: #000;
+    margin-top: 30px;
+}
+
+.meme h2{
+    padding: 8px;
+    hyphens: auto;
+    word-break: break-word;
+}
+
 img{
-    width: 450px;
-    height: 500px;
+    width: 270px;
+    height: 350px;
     object-fit: cover;
     object-position: center;    
 }

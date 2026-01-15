@@ -6,6 +6,8 @@ body{
     color: #fff;
     font-family: 'impact', sans-serif;
     padding: 20px;
+    touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 h1{
@@ -22,10 +24,23 @@ label{
 }
 
 .help{
-    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin-top: 15px;
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0 #000000;
+
 }
 
+.help img{
+    width: 30px;
+    height: 30px;
+}
 .help:hover{
     opacity: 70%;
 }
@@ -49,6 +64,7 @@ label{
     width: 400px;
     height: 70px;
     border: 2px solid #000000;
+    font-size: 18px;
 }
 
 .input-container textarea:focus{
@@ -139,6 +155,19 @@ label{
 }
 
 @media screen and (max-width:600px) {
+
+    .help{
+        width: 30px;
+        height: 30px;
+        padding: 5px 10px;
+        display: flex;
+    }
+    .help img{
+        width: 20px;
+        height: 20px;
+        padding: 0;
+    }
+
     .slider-image {
         width: 270px;
         height: 350px;
@@ -179,15 +208,72 @@ label{
     .input-container div{
     gap: 10px;
     margin-top: 5px;
+    }
+    .prev:hover, .next:hover,
+    .button-vote:hover,
+    .input-container button:hover{
+        opacity: 100%;
+    }
 }
 
-.help{
-    margin-right: 20px;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
 }
 
-.prev:hover, .next:hover,
-.button-vote:hover,
-.input-container button:hover{
-    opacity: 100%;
+.hidden {
+    display: none;
 }
+
+#confirmModal {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    color: black;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    animation: pop 0.25s ease;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#cancelBtn {
+    background: #797979;
+}
+
+#confirmBtn {
+    background: #5E239D;
+    color: white;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

@@ -119,6 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showSlide(slideIndex);
     checkLimitAndHide();
+
+        window.addEventListener('load', function() {
+            document.querySelectorAll('h2').forEach(el => {
+                let fontSize = 24;
+                let container = el.parentElement;
+
+                while (el.scrollHeight > container.offsetHeight && fontSize > 10) {
+                    fontSize--;
+                    el.style.fontSize = fontSize + "px";
+                }
+            });
+        });
+
 });
 </script>
 </body>
