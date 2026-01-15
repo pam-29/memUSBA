@@ -13,6 +13,7 @@ h1{
     font-size: 48px;
     text-transform: uppercase;
 }
+
 p{
     font-size: 25px;
     font-family: 'roboto', sans-serif;
@@ -22,11 +23,13 @@ p{
     width: 450px;
     font-size: 15px;
     font-family: 'roboto', sans-serif;
+    text-align: center;
 }
 
 .meme-preview{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .meme{
@@ -36,7 +39,6 @@ p{
     background: #FFFFFF;
     overflow: hidden;
     color: #000;
-    margin-top: 30px;
 }
 
 .meme h2{
@@ -53,7 +55,7 @@ img{
 }
 
 .btn-vote{
-    margin-bottom: 20px;
+    margin-top: 20px;
     background-color: #1E0737;
     padding: 15px 30px;
     color: #fff;
