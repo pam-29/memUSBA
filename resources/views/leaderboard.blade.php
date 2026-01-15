@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <h1>Top memes</h1>
+    <p>Dernière mise à jour: <span id="refresh"></span></p>
 
+    <h1>Top memes</h1>
     <div class="platform">
         <!-- Bronze = 3e -->
         <div class="bronze">
@@ -56,8 +57,8 @@
         </div>
     </div>
 
-
     <script>
+        document.getElementById('refresh').innerText = new Date().toLocaleTimeString();
         setTimeout(() => location.reload(), 120000);
     </script>
 </body>

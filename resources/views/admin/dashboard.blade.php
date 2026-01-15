@@ -9,6 +9,7 @@
 <body>
 
 <div class="header">
+    <p>Dernière mise à jour: <span id="refresh"></span></p>
     <h1>Memes restants : {{ $memes->count() }}</h1>
 </div>
 
@@ -56,6 +57,7 @@
 </div>
 
     <script>
+        document.getElementById('refresh').innerText = new Date().toLocaleTimeString();
         setTimeout(() => location.reload(), 120000);
     </script>
 </body>
