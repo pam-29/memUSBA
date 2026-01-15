@@ -13,7 +13,11 @@
     <h1>Ton meme a été enregistré !</h1>
 
     <div class="meme-preview">
-        <img src="{{ $meme->portrait->source }}" alt="Portrait utilisé">
+        <div class="meme">
+            <h2>{{$meme->text}}</h2>
+            <img src="{{ $meme->portrait->source }}" alt="Portrait utilisé">
+        </div>
+        
         <p class="info"> 
             {{ $meme->portrait->painting_name }},
             <i>{{ $meme->portrait->artist_name }}</i>, 

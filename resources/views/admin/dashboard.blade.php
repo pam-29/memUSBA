@@ -35,7 +35,8 @@
         @if($memes->count() > 0)
             @php $current = $memes->first(); @endphp
             <div class="meme">
-                <h2 style="hyphens: none;">Texte : {{ $current->text }}</h2>
+                <h2 style="word-break: break-word;
+    hyphens: auto;">Texte : {{ $current->text }}</h2>
                 <img src="{{ $current->portrait->source }}">
             </div>
             
