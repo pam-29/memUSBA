@@ -61,7 +61,7 @@ img{
     align-items: center;
     justify-content: center;
     background: #FFFFFF;
-    overflow: hidden; /* Important pour le script */
+    overflow: hidden;
 }
 
 .GridCell h2 {

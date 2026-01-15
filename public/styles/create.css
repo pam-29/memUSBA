@@ -24,10 +24,23 @@ label{
 }
 
 .help{
-    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin-top: 15px;
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0 #000000;
+
 }
 
+.help img{
+    width: 30px;
+    height: 30px;
+}
 .help:hover{
     opacity: 70%;
 }
@@ -51,6 +64,7 @@ label{
     width: 400px;
     height: 70px;
     border: 2px solid #000000;
+    font-size: 18px;
 }
 
 .input-container textarea:focus{
@@ -141,6 +155,19 @@ label{
 }
 
 @media screen and (max-width:600px) {
+
+    .help{
+        width: 30px;
+        height: 30px;
+        padding: 5px 10px;
+        display: flex;
+    }
+    .help img{
+        width: 20px;
+        height: 20px;
+        padding: 0;
+    }
+
     .slider-image {
         width: 270px;
         height: 350px;
@@ -181,15 +208,10 @@ label{
     .input-container div{
     gap: 10px;
     margin-top: 5px;
-}
-
-.help{
-    margin-right: 20px;
-}
-
-.prev:hover, .next:hover,
-.button-vote:hover,
-.input-container button:hover{
-    opacity: 100%;
-}
+    }
+    .prev:hover, .next:hover,
+    .button-vote:hover,
+    .input-container button:hover{
+        opacity: 100%;
+    }
 }

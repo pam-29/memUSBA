@@ -20,8 +20,20 @@ body{
 
 .close{
     margin-top: 8px;
-}
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    box-shadow: 4px 4px 0 #000000;
 
+}
+.close img{
+    width: 25px;
+    height: 25px;
+}
 .close:hover{
     opacity: 70%;
 }
@@ -94,5 +106,17 @@ p, ul{
 
     .container div{
         margin: 0;
+    }
+
+    .close{
+        width: 30px;
+        height: 30px;
+        padding: 5px 8px;
+    }
+
+    .close img{
+        width: 20px;
+        height: 20px;
+        padding: 0;
     }
 }

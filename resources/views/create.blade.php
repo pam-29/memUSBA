@@ -10,7 +10,7 @@
 </head>
 <body>
     <div style="display:flex;">
-        <h1>Choisis ton tableau</h1>
+        <h1>Choisis ton tableau et crée ton meme</h1>
         <a href="{{route('help')}}" class="help">
             <img src="/help.svg" alt="icone point d'interrogation pour une aide">
         </a>
