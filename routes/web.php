@@ -38,6 +38,5 @@ Route::middleware([\App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::delete('/admin/meme/{id}/delete', [MemeController::class, 'deleteMeme'])->name('admin.delete');
 });
 
-
 // Pop up confirmation après création de meme
 Route::get('/confirmation', [MemeController::class, 'confirmation'])->name('memes.confirmation');
