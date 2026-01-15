@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll(".mySlides");
     const hiddenInput = document.getElementById("selected_meme_id");
     const voteButtons = document.getElementById("voteButtons");
+    const btnCreateMeme = document.getElementById("btnCreateMeme");
 
     if (slides.length === 0) return;
 
@@ -54,7 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkLimitAndHide() {
         if (voteCount >= 5) {
             if (voteButtons) voteButtons.style.display = 'none';
+            if (btnCreateMeme) btnCreateMeme.style.display = 'block'; 
             return true;
+        } else {
+            if (btnCreateMeme) btnCreateMeme.style.display = 'none';
         }
         return false;
     }
