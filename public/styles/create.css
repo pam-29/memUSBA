@@ -81,6 +81,7 @@ label{
     text-decoration: none;
     cursor: pointer;
     font-family: 'impact', sans-serif;
+    box-shadow: 4px 4px 0px #000000;
 }
 
 .input-container button{
@@ -277,4 +278,11 @@ label{
         transform: scale(1);
         opacity: 1;
     }
+}
+
+.button:active, .arrow:active, .help:active {
+    transform: scale(0.92); 
+    filter: brightness(0.8);
+    box-shadow: 0px 0px 0px #000 !important;
+    transition: transform 0.1s ease;
 }
