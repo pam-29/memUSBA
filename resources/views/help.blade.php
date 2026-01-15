@@ -10,12 +10,14 @@
 </head>
 <body>
     <div class="about-container">
-
-        <a href="{{route('memes.create')}}" class="close">
-            <img src="/close.svg" alt="icone pour fermer la page">
-        </a>
         <div class="container">
-            <h1>Qu'est-ce qu'un meme ?</h1>
+            <div>
+                <h1>Qu'est-ce qu'un meme ?</h1>
+                <a href="{{route('memes.create')}}" class="close">
+                    <img src="/close.svg" alt="icone pour fermer la page">
+                </a>
+            </div>
+
             <p>Un meme est une image accompagnée d’un commentaire et à pour objectif de faire rire. En soit c’est une blague en fonction d’une image !</p>
         </div>
         
@@ -44,7 +46,7 @@
         <div class="logo">
             <div>
                 <img src="/logommi.png" alt="logo mmi">
-                <img src="/logomusba.png" alt="logo memUSBA">
+                <img src="/logomusba.png" alt="logo memUSBA" class="musba">
             </div>
             <img src="/bacchanight.svg" alt="logo bacchanight" class="logo-bacc">
         </div>

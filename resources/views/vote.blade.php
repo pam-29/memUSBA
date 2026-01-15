@@ -22,11 +22,15 @@
         @endforeach
 
         <div class="vote" id="voteButtons">
-            <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> ❤️</a>
+            <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> 
+                <img src="/dislike.svg" alt="icone je n'aime pas">
+            </a>
 
             <p style="font-size: 30px;">/</p>
             
-            <a onclick="prevSlide()" style="cursor: pointer;" class="arrow">💔</a>
+            <a onclick="prevSlide()" style="cursor: pointer;" class="arrow">
+                <img src="/like.svg" alt="icone j'aime">
+            </a>
         </div>
     @else
         <div style="text-align: center; padding: 50px;">
@@ -34,7 +38,7 @@
         </div>
     @endif
 
-    <a href="{{ route('memes.create') }}" class="button">créer ton meme pour voter plus</a>
+    <a href="{{ route('memes.create') }}" class="button">créer ton meme</a>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
