@@ -110,13 +110,23 @@
             errorMsg.style.display = 'block';
             textarea.style.borderColor = 'red';
         }
-    });
+        
+        // pop up, faire le frontend
+        const confirmation = confirm("Es-tu sûr de vouloir valider la création de ce meme ?");
+    
+        if (!confirmation) {
+            event.preventDefault(); 
+        } else {
+            resetVoteCounter();
+        }
+        });
 
-    textarea.addEventListener('input', function() {
-        errorMsg.style.display = 'none';
-        textarea.style.borderColor = '';
+        textarea.addEventListener('input', function() {
+            errorMsg.style.display = 'none';
+            textarea.style.borderColor = '';
+        });
     });
-});
+    // ------ fin pop up ------
 }
 </script>
 </body>

@@ -23,13 +23,13 @@ class MemeController extends Controller
             'portrait_id' => 'required|exists:portraits,id',
         ]);
 
-        \App\Models\Meme::create([
+        $meme = \App\Models\Meme::create([
             'text' => $request->text,
             'portrait_id' => $request->portrait_id,
             'public' => false,
         ]);
 
-        return redirect()->route('memes.vote')->with('success', 'Meme créé ! Il est en attente de validation.');
+        return redirect()->route('memes.confirmation')->with('new_meme_id', $meme->id);
     }
 
     public function galerie()
@@ -132,6 +132,17 @@ class MemeController extends Controller
         Meme::where('id', $request->meme_id)->increment('view');
 
         return response()->json(['success' => true]);
+    }
+
+    public function confirmation()
+    {
+        $id = session('new_meme_id');
+
+        if (!$id) {
+            return redirect()->route('memes.create');
+        }
+        $meme = \App\Models\Meme::with('portrait')->findOrFail($id);
+        return view('confirmation', compact('meme'));
     }
 
 }
