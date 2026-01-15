@@ -21,6 +21,12 @@
         </div>
         @endforeach
 
+        <div id="limitMessage" style="display: none;">
+            <h2>
+                créer un meme pour continuer à voter
+            </h2>
+        </div>
+
         <div class="vote" id="voteButtons">
             <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> 
                 <img src="/dislike.svg" alt="icone je n'aime pas">
@@ -38,7 +44,7 @@
         </div>
     @endif
 
-    <a href="{{ route('memes.create') }}" class="create-meme-button button" id="btnCreateMeme" style="display: none;">créer ton meme</a>
+    <a href="{{ route('memes.create') }}" class="create-meme-button button small" id="btnCreateMeme" style="display: block;">créer ton meme</a>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,12 +60,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkLimitAndHide() {
         if (voteCount >= 5) {
+            slides.forEach(s => s.style.display = 'none');
+            if (limitMessage) limitMessage.style.display = 'flex';
             if (voteButtons) voteButtons.style.display = 'none';
-            if (btnCreateMeme) btnCreateMeme.style.display = 'block'; 
+            if (btnCreateMeme) {
+                btnCreateMeme.classList.remove('small');
+                btnCreateMeme.classList.add('large');
+            }
             return true;
         } else {
-            if (btnCreateMeme) btnCreateMeme.style.display = 'none';
+            if (btnCreateMeme) {
+                btnCreateMeme.style.display = 'block'; 
+                btnCreateMeme.classList.add('small');
+                btnCreateMeme.classList.remove('large');
+            }
         }
+        if (limitMessage) limitMessage.style.display = 'none';
         return false;
     }
 
