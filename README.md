@@ -77,3 +77,7 @@ php artisan tinker
 App\Models\Portrait::all();
 
 ------------------
+
+Pour automatiser le timer des memes : 
+Écrire dans un terminal et laisser tourner tout le temps 
+php artisan schedule:work
