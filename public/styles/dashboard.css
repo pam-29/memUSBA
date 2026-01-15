@@ -50,6 +50,8 @@ body{
 
 .meme h2{
     word-break: break-all;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .btn-container{

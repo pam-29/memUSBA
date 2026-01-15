@@ -7,67 +7,8 @@
     <link rel="icon" type="image/png" href="https://i.postimg.cc/25tvsKK9/Icon.png">
     <link rel="stylesheet" href="/styles/font.css">
     <title>Choisis ton tableau</title>
-    <style>.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
 
-.hidden {
-    display: none;
-}
-
-#confirmModal {
-    display: none;
-}
-
-.modal-content {
-    background: #fff;
-    color: black;
-    padding: 25px;
-    border-radius: 12px;
-    width: 320px;
-    text-align: center;
-    animation: pop 0.25s ease;
-}
-
-.modal-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.modal-actions button {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-#cancelBtn {
-    background: #ccc;
-}
-
-#confirmBtn {
-    background: #5E239D;
-    color: white;
-}
-
-@keyframes pop {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-</style>
+    
 </head>
 <body>
     <div style="display:flex;">
