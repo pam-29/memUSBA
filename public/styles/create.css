@@ -9,10 +9,11 @@ body{
 }
 
 h1{
-    -webkit-text-stroke:1px rgb(0,0,0);
-    text-shadow: 2px 2px 0 #000000;
+    text-shadow: 4px 4px 0 #000000;
     font-size: 48px;
     text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
 }
 
 label{
@@ -21,8 +22,8 @@ label{
 }
 
 .help{
-    margin-top: 50px;
-    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .help:hover{
@@ -94,6 +95,8 @@ label{
     height: 500px;
     object-fit: cover;
     object-position: center;
+    margin: 0px;
+    padding: 0px;
 }
 
 .slider-container{
@@ -123,6 +126,13 @@ label{
     animation-duration: 1.5s;
 }
 
+.arrow{
+    width: 50px;
+    height: auto;
+    margin: 10px;
+}
+
+
 @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
@@ -142,6 +152,42 @@ label{
 
     .input-container textarea{
         width: 300px;
-        height: 100px;
+        height: 60px;
+        margin: 0px;
+
     }
+
+    .arrow{
+    width: 30px;
+    height: auto;
+    margin: 0;
+    }
+
+    h1{
+        font-size: 32px;
+        margin-left: 30px;
+    }
+
+    label{
+        font-size: 18px;
+    }
+
+    p{
+        font-size: 18px;
+    }
+
+    .input-container div{
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.help{
+    margin-right: 20px;
+}
+
+.prev:hover, .next:hover,
+.button-vote:hover,
+.input-container button:hover{
+    opacity: 100%;
+}
 }

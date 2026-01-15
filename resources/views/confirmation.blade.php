@@ -10,21 +10,19 @@
 <body>
     <div class="grid-overlay"></div>
 
-    <h1>Ton meme a été<br>enregistré !</h1>
+    <h1>Ton meme a été enregistré !</h1>
 
     <div class="meme-preview">
         <img src="{{ $meme->portrait->source }}" alt="Portrait utilisé">
+        <p class="info"> 
+            {{ $meme->portrait->painting_name }},
+            <i>{{ $meme->portrait->artist_name }}</i>, 
+            {{ $meme->portrait->year }}
+        </p>
     </div>
 
-    <div class="info-text">
-        <p>
-            Le tableau que tu as utilisé pour créer ton meme s’appelle 
-            <strong>{{ $meme->portrait->painting_name }}</strong> et a été fait par 
-            <strong>{{ $meme->portrait->artist_name }}</strong> en 
-            <strong>{{ $meme->portrait->year }}</strong>.
-        </p>
-        <p>Si tu veux voter pour le meilleur meme, clique sur le bouton ci-dessous !</p>
-    </div>
+    <p>Si tu veux voter pour le meilleur meme, clique sur le bouton ci dessous !</p>
+
 
     <a href="{{ route('memes.vote') }}" class="btn-vote">
         ALLER VOTER

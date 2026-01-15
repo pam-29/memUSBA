@@ -22,7 +22,7 @@
         <input type="hidden" name="portrait_id" id="selected_portrait_id" value="{{ $portraits->first()->id ?? '' }}">
         
         <div class="slider-container">
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="prev" onclick="plusSlides(-1)"><img class="arrow" src="/leftArrow.svg" alt="Left arrow"></a>
 
             @foreach($portraits as $index => $portrait)
                 <div class="mySlides fade {{ $index == 0 ? 'active' : '' }}" data-portrait-id="{{ $portrait->id }}">
@@ -30,13 +30,13 @@
                 </div>
             @endforeach
 
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="next" onclick="plusSlides(1)"><img class="arrow" src="/rightArrow.svg" alt="Right arrow"></a>
         </div>
 
         <div class="input-container">
             <div>
-                <label for="text">Ecris le texte de ton meme :</label>
-                <textarea name="text" id="text" placeholder="..."></textarea>
+
+                <textarea name="text" id="text" placeholder="Ecris le texte de ton meme..."></textarea>
                 <p id="wordError"  class="error"></p>
             </div>
             
@@ -44,6 +44,7 @@
         </div>
     </form>
 
+    
 <script>
     // remet compteur a 0 pour la limite de votes
     function resetVoteCounter() {
