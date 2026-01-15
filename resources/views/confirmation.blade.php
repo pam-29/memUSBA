@@ -21,9 +21,6 @@
         </p>
     </div>
 
-    <p>Si tu veux voter pour le meilleur meme, clique sur le bouton ci dessous !</p>
-
-
     <a href="{{ route('memes.vote') }}" class="btn-vote">
         ALLER VOTER
     </a>

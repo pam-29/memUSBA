@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -15,15 +14,15 @@ class MoveOldMemesToReserve extends Command
     public function handle()
     {
         $now = now();
-        $lifetime = 15; // Minutes
+        $lifetime = 15;
 
         $this->info("Vérification des memes expirés...");
 
-        // On récupère les IDs du Top 20 actuel (basé sur les likes)
+        // On récupère les IDs du Top 20 actuel
         $topIds = Meme::orderByDesc('likes')
-                      ->take(20)
-                      ->pluck('id')
-                      ->toArray();
+                    ->take(20)
+                    ->pluck('id')
+                    ->toArray();
 
         // On cible les memes créés il y a plus de 15 minutes
         $expiredMemes = Meme::where('created_at', '<=', $now->copy()->subMinutes($lifetime))->get();

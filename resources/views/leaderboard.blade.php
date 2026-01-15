@@ -24,8 +24,6 @@
             <p>Likes: {{ $memes[2]->likes }}</p>
             @endif         
             </div>
-            
-
         </div>
 
         <!-- Gold = 1er -->
@@ -38,8 +36,6 @@
             <p>Likes: {{ $memes[0]->likes }}</p>
             @endif
             </div>
-
-
         </div>
 
         <!-- Silver = 2e -->
@@ -52,8 +48,6 @@
             <p>Likes: {{ $memes[1]->likes }}</p>
             @endif                
             </div>
-
-
         </div>
     </div>
 

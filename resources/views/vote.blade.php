@@ -38,7 +38,7 @@
         </div>
     @endif
 
-    <a href="{{ route('memes.create') }}" class="button">créer ton meme</a>
+    <a href="{{ route('memes.create') }}" class="create-meme-button button" id="btnCreateMeme" style="display: none;">créer ton meme</a>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,27 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.prevSlide = function() {
-        if (voteCount < 5) {
+        if (!checkLimitAndHide()) {
             voteCount++;
             localStorage.setItem('vote_count', voteCount);
-            
-            if (!checkLimitAndHide()) {
-                slideIndex = (slideIndex + 1) % slides.length;
-                showSlide(slideIndex);
-            }
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
         }
     }
 
     window.likeAndNext = function() {
-        if (voteCount < 5) {
+        if (!checkLimitAndHide()) {
             likeCurrentMeme();
             voteCount++;
             localStorage.setItem('vote_count', voteCount);
-            
-            if (!checkLimitAndHide()) {
-                slideIndex = (slideIndex + 1) % slides.length;
-                showSlide(slideIndex);
-            }
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
         }
     }
 

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +12,11 @@ class AdminAuth
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
-    {
-    if (!$request->session()->has('admin_logged_in')) {
-        return redirect()->route('admin.login')->with('error', 'Veuillez vous connecter.');
-    }
-    return $next($request);
+
+    public function handle(Request $request, Closure $next) {
+        if (!$request->session()->has('admin_logged_in')) {
+            return redirect()->route('admin.login');
+        }
+        return $next($request);
     }
 }

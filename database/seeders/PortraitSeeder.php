@@ -1,17 +1,12 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use App\Models\Portrait;
 
-class PortraitSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
+class PortraitSeeder extends Seeder{
+
+    public function run(): void{
         $images = [
             'https://www.musba-bordeaux.fr/sites/bor-musba-drupal/files/styles/wide/public/2025-05/Gros_Ducxhesse_Angouleme_Ph_F_Deval.jpg.webp?itok=2OqhVcek',
             'https://www.musba-bordeaux.fr/sites/bor-musba-drupal/files/2025-03/Delacroix_Grece_ruines_Ph_F_Deval.jpg',
@@ -124,41 +119,12 @@ class PortraitSeeder extends Seeder
             '1833'
         ];
 
-        $localisations = [
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            'check location',
-            "Les années 1910-1940 du cubisme au retour à l'ordre",
-            "Les années 1910-1940 du cubisme au retour à l'ordre",
-            'check location',
-            'check location',
-            'check location',
-            "Odilon Redon et l'art autour de 1900",
-            'check location',
-            'check location',
-            "Les années 1910-1940 du cubisme au retour à l'ordre",
-            "Les années 1910-1940 du cubisme au retour à l'ordre",
-            'check location',
-            'check location',
-            "Odilon Redon et l'art autour de 1900",
-            'check location'
-        ];
-
         foreach ($images as $index => $url) {
             Portrait::create([
                 'source' => $url,
                 'artist_name' => $artist_names[$index],
                 'painting_name' => $painting_names[$index],
                 'year' => $years[$index],
-                'localisation' => $localisations[$index]
             ]);
         }
     }
