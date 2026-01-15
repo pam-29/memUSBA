@@ -19,7 +19,8 @@
             <h1>3</h1>
             @if(isset($memes[2]))
             <div class="meme">
-            <p style="hyphens: none;">{{ $memes[2]->text }}</p>
+            <p style="word-break: break-word;
+    hyphens: auto;">{{ $memes[2]->text }}</p>
             <img src="{{ $memes[2]->portrait->source }}" alt="3rd meme" class="portrait">
             <p>Likes: {{ $memes[2]->likes }}</p>
             @endif         
@@ -33,7 +34,8 @@
             <h1>1</h1>
             @if(isset($memes[0]))
             <div class="meme">
-            <p style="hyphens: none;">{{ $memes[0]->text }}</p>                
+            <p style="word-break: break-word;
+    hyphens: auto;">{{ $memes[0]->text }}</p>                
             <img src="{{ $memes[0]->portrait->source }}" alt="1st meme" class="portrait">
             <p>Likes: {{ $memes[0]->likes }}</p>
             @endif
@@ -47,7 +49,8 @@
             <h1>2</h1>
             @if(isset($memes[1]))
             <div class="meme">
-            <p style="hyphens: none;">{{ $memes[1]->text }}</p>            
+            <p style="word-break: break-word;
+    hyphens: auto;">{{ $memes[1]->text }}</p>            
             <img src="{{ $memes[1]->portrait->source }}" alt="2nd meme" class="portrait">
             <p>Likes: {{ $memes[1]->likes }}</p>
             @endif                

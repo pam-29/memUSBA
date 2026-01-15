@@ -50,7 +50,8 @@ h1{
 
 .mySlides h2{
     line-height: 1.1;
-    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .button{

@@ -16,7 +16,7 @@
 
         @foreach($memes as $meme)
         <div class="mySlides" data-meme-id="{{$meme->id}}" style="display: none;">
-            <h2 style="hyphens: none;">{{$meme->text}}</h2> 
+            <h2>{{$meme->text}}</h2> 
             <img src="{{ $meme->portrait->source }}" alt="" class="image">
         </div>
         @endforeach
