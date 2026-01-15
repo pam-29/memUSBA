@@ -22,11 +22,19 @@
         @endforeach
 
         <div class="vote" id="voteButtons">
-            <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> ❤️</a>
-
+            <a onclick="likeAndNext()" style="cursor: pointer;">
+                <div class="arrow">
+                    &#10094;
+                    <p>❤️</p>
+                </div>
+            </a>
             <p style="font-size: 30px;">/</p>
-            
-            <a onclick="prevSlide()" style="cursor: pointer;" class="arrow">💔</a>
+            <a onclick="prevSlide()" style="cursor: pointer;">
+                <div class="arrow">
+                    <p>💔</p>    
+                    &#10095;
+                </div>
+            </a>
         </div>
     @else
         <div style="text-align: center; padding: 50px;">
@@ -34,7 +42,7 @@
         </div>
     @endif
 
-    <a href="{{ route('memes.create') }}" class="button">créer ton meme pour voter plus</a>
+    <a href="{{ route('memes.create') }}" id="btnCreateMeme" class="button" style="display: none;">créer ton meme pour voter plus</a>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll(".mySlides");
     const hiddenInput = document.getElementById("selected_meme_id");
     const voteButtons = document.getElementById("voteButtons");
+    const btnCreateMeme = document.getElementById("btnCreateMeme");
 
     if (slides.length === 0) return;
 
@@ -50,7 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkLimitAndHide() {
         if (voteCount >= 5) {
             if (voteButtons) voteButtons.style.display = 'none';
+            if (btnCreateMeme) btnCreateMeme.style.display = 'block'; 
             return true;
+        } else {
+            if (btnCreateMeme) btnCreateMeme.style.display = 'none';
         }
         return false;
     }
