@@ -35,7 +35,7 @@
             <p>Créateurs des MemUSBA : </p>
             <ul class="credit">
                 <li>Amélie Savary--Tolstoï</li>
-                <li>Jordan Cha</li>
+                <li>Jordan Tcha</li>
                 <li>Pamela Rakatoarijaona</li>
                 <li>Sara Rejimand</li>
                 <li>Elia Rossi</li>

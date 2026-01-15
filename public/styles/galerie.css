@@ -3,6 +3,8 @@ body{
     color: #FFFFFF; 
     text-transform: uppercase; 
     font-family: 'impact', sans-serif; 
+    touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 h1{

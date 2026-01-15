@@ -7,6 +7,8 @@ body{
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 .image{

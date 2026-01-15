@@ -18,7 +18,7 @@
             @foreach($memes as $meme)
                 <div class="GridCell">
                     <div>
-                        <h2>
+                        <h2 style="hyphens: none;">
                             {{ $meme->text }}
                         </h2>
                     </div>

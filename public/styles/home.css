@@ -6,6 +6,8 @@ body{
     flex-direction: column;
     align-items: center;
     margin-top: 105px;
+    touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 .button{
@@ -18,8 +20,7 @@ body{
 
 h1{
     font-size: 50px;
-    -webkit-text-stroke: 1px rgb(0, 0, 0); 
-    text-shadow: 2px 2px 0 #000000;
+    text-shadow: 4px 4px 0 #000000;
     text-transform: uppercase; 
 }
 
