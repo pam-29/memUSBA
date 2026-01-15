@@ -9,7 +9,7 @@
     <title>Choisis ton tableau</title>
 </head>
 <body>
-    <div style="display:flex; gap:30px; align-items:center;">
+    <div style="display:flex;">
         <h1>Choisis ton tableau</h1>
         <a href="{{route('help')}}" class="help">
             <img src="/help.svg" alt="icone point d'interrogation pour une aide">
@@ -35,19 +35,14 @@
 
         <div class="input-container">
             <div>
-                <label for="text">Crée ton meme</label>
-                <textarea name="text" id="text" placeholder="Écris ton commentaire..."></textarea>
+                <label for="text">Ecris le texte de ton meme :</label>
+                <textarea name="text" id="text" placeholder="..."></textarea>
                 <p id="wordError"  class="error"></p>
             </div>
             
             <button type="submit">VALIDER</button>
         </div>
     </form>
-
-    <a href="{{ route('memes.vote') }}" class="button-vote">
-        voter sans créer
-    </a>
-
 
 <script>
     // remet compteur a 0 pour la limite de votes

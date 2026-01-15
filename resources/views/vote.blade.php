@@ -22,19 +22,11 @@
         @endforeach
 
         <div class="vote" id="voteButtons">
-            <a onclick="likeAndNext()" style="cursor: pointer;">
-                <div class="arrow">
-                    &#10094;
-                    <p>❤️</p>
-                </div>
-            </a>
+            <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> ❤️</a>
+
             <p style="font-size: 30px;">/</p>
-            <a onclick="prevSlide()" style="cursor: pointer;">
-                <div class="arrow">
-                    <p>💔</p>    
-                    &#10095;
-                </div>
-            </a>
+            
+            <a onclick="prevSlide()" style="cursor: pointer;" class="arrow">💔</a>
         </div>
     @else
         <div style="text-align: center; padding: 50px;">
