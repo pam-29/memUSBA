@@ -108,7 +108,7 @@ label{
 
 
 .slider-image {
-    width: 450px;
+    width: 350px;
     height: 500px;
     object-fit: cover;
     object-position: center;
@@ -280,7 +280,7 @@ label{
     }
 }
 
-.button:active, .arrow:active, .help:active {
+.modal-content button:active {
     transform: scale(0.92); 
     filter: brightness(0.8);
     box-shadow: 0px 0px 0px #000 !important;

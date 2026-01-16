@@ -25,11 +25,25 @@ h1 {
     color: #000;
     margin-top: 15px;
     margin-bottom: 10px;
+    
+}
+
+.mySlides h2{
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    margin: 0;
+    height: 80px;
+    max-height: 100px;
+    display: block; 
+    overflow: hidden; 
+    line-height: 1.2;
+    box-sizing: border-box;
 }
 
 .image {
     width: 260px;
-    height: 424px;
+    height: 360px;
     object-fit: cover;
     object-position: center;
 }
@@ -71,12 +85,14 @@ h1 {
     text-align: center;
     line-height: 1.2;
     margin: 0;
+
 }
 
 #btnCreateMeme {
     display: block; 
     text-align: center;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 2px 2px 0 #000000;
 }
 
 #btnCreateMeme.small {
@@ -104,4 +120,11 @@ h1 {
 @keyframes apparitionBouton {
     0% { opacity: 0; transform: scale(0.8); }
     100% { opacity: 1; transform: scale(1); }
+}
+
+#btnCreateMeme.small:active, #btnCreateMeme.large:active{
+    transform: scale(0.92); 
+    filter: brightness(0.8);
+    box-shadow: 0px 0px 0px #000 !important;
+    transition: transform 0.1s ease;
 }
