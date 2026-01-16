@@ -88,7 +88,6 @@ h1{
 
 .leaderboard-others {
     width: 100%;
-<<<<<<< HEAD
     max-width: 800px;
     margin: 50px auto;
     display: flex;
@@ -111,44 +110,10 @@ h1{
     height: 60px;
     object-fit: cover;
     margin: 0 20px;
-=======
-    margin: 30px auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-}
-
-.meme-row {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #000;
-    gap: 15px;
-    width: 200px;
-    height: 310px;
-    word-break: break-all;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-}
- .meme-row p{
-    text-shadow: none;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 4px;
-    height: 50px;
- }
-
-.small-portrait {
-    width: 195px;
-    height: 240px;
-    object-fit: cover;
->>>>>>> 3880d7da7eee8d3cb3f723d278f08f4bc2d5301e
     border: 1px solid #000;
 }
 
 .rank {
-<<<<<<< HEAD
     font-size: 24px;
     min-width: 40px;
 }
@@ -157,30 +122,4 @@ h1{
     flex-grow: 1;
     font-size: 18px;
     text-transform: none; 
-=======
-    font-size: 20px;
-    font-weight: bold;
-    width: 20px;
-    text-shadow: 2px 2px 0 #000000;
-}
-
-.text-container {
-    flex-grow: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    overflow: hidden; /* Critical for shrink math */
-}
-
-.meme-text {
-    margin: 0;
-    font-size: 18px;
-    line-height: 1.1;
-    word-break: break-word;
-}
-
-.likes-count {
-    font-size: 16px;
-    white-space: nowrap;
->>>>>>> 3880d7da7eee8d3cb3f723d278f08f4bc2d5301e
 }
