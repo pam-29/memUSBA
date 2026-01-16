@@ -71,3 +71,41 @@ h1{
     height: 300px;
     object-fit: cover;
 }
+
+.leaderboard-others {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 50px;
+}
+
+.meme-row {
+    background-color: rgba(255, 255, 255, 0.1); /* Fond léger pour voir le bloc */
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+
+.small-portrait {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin: 0 20px;
+    border: 1px solid #000;
+}
+
+.rank {
+    font-size: 24px;
+    min-width: 40px;
+}
+
+.meme-text {
+    flex-grow: 1;
+    font-size: 18px;
+    text-transform: none; 
+}

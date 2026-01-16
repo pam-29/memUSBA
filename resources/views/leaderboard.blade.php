@@ -23,8 +23,8 @@
     hyphens: auto;">{{ $memes[2]->text }}</p>
             <img src="{{ $memes[2]->portrait->source }}" alt="3rd meme" class="portrait">
             <p>Likes: {{ $memes[2]->likes }}</p>
-            @endif         
             </div>
+            @endif  
         </div>
 
         <!-- Gold = 1er -->
@@ -36,8 +36,8 @@
     hyphens: auto;">{{ $memes[0]->text }}</p>                
             <img src="{{ $memes[0]->portrait->source }}" alt="1st meme" class="portrait">
             <p>Likes: {{ $memes[0]->likes }}</p>
-            @endif
             </div>
+            @endif
         </div>
 
         <!-- Silver = 2e -->
@@ -49,10 +49,22 @@
     hyphens: auto;">{{ $memes[1]->text }}</p>            
             <img src="{{ $memes[1]->portrait->source }}" alt="2nd meme" class="portrait">
             <p>Likes: {{ $memes[1]->likes }}</p>
-            @endif                
             </div>
+            @endif 
         </div>
     </div>
+
+
+    <div class="leaderboard-others">
+    @foreach($memes->slice(3, 7) as $index => $meme)
+        <div class="meme-row">
+            <span class="rank">{{ $index + 1 }}</span>
+            <img src="{{ $meme->portrait->source }}" alt="Meme {{ $index + 1 }}" class="small-portrait">
+            <p class="meme-text">{{ $meme->text }}</p>
+            <p class="likes">Likes: {{ $meme->likes }}</p>
+        </div>
+    @endforeach
+</div>
 
     <script>
         document.getElementById('refresh').innerText = new Date().toLocaleTimeString();
