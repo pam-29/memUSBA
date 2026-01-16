@@ -82,10 +82,10 @@
             const h2 = meme.querySelector('h2');
             if (!h2) return;
 
-            h2.style.fontSize = "24px";
-            let fontSize = 24;
+            h2.style.fontSize = "22px";
+            let fontSize = 22;
 
-            while (h2.scrollHeight > MAX_HEIGHT && fontSize > 16) {
+            while (h2.scrollHeight > MAX_HEIGHT && fontSize > 15) {
                 fontSize--;
                 h2.style.fontSize = fontSize + "px";
             }
