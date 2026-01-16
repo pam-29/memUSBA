@@ -8,7 +8,7 @@ class LeaderboardController extends Controller {
     public function leaderboard(){
         $memes = Meme::with('portrait')
             ->orderByDesc('likes')
-            ->take(3)
+            ->take(10)
             ->get();
         return view('leaderboard', compact('memes'));
     }

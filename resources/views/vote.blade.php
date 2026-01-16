@@ -21,6 +21,12 @@
         </div>
         @endforeach
 
+        <div id="limitMessage" style="display: none;">
+            <h2>
+                créer un meme pour continuer à voter
+            </h2>
+        </div>
+
         <div class="vote" id="voteButtons">
             <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> 
                 <img src="/dislike.svg" alt="icone je n'aime pas">
@@ -38,7 +44,7 @@
         </div>
     @endif
 
-    <a href="{{ route('memes.create') }}" class="create-meme-button button" id="btnCreateMeme" style="display: none;">créer ton meme</a>
+    <a href="{{ route('memes.create') }}" class="create-meme-button button small" id="btnCreateMeme" style="display: block;">créer ton meme</a>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,24 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkLimitAndHide() {
         if (voteCount >= 5) {
+            slides.forEach(s => s.style.display = 'none');
+            if (limitMessage) limitMessage.style.display = 'flex';
             if (voteButtons) voteButtons.style.display = 'none';
-            if (btnCreateMeme) btnCreateMeme.style.display = 'block'; 
+            if (btnCreateMeme) {
+                btnCreateMeme.classList.remove('small');
+                btnCreateMeme.classList.add('large');
+            }
             return true;
         } else {
-            if (btnCreateMeme) btnCreateMeme.style.display = 'none';
+            if (btnCreateMeme) {
+                btnCreateMeme.style.display = 'block'; 
+                btnCreateMeme.classList.add('small');
+                btnCreateMeme.classList.remove('large');
+            }
         }
+        if (limitMessage) limitMessage.style.display = 'none';
         return false;
-    }
-
-    function showSlide(index) {
-        slides.forEach(slide => slide.style.display = "none");
-        const currentSlide = slides[index];
-        if (currentSlide) {
-            currentSlide.style.display = "block";
-            const currentId = currentSlide.getAttribute("data-meme-id");
-            if (hiddenInput) hiddenInput.value = currentId;
-            addView(currentId);
-        }
     }
 
     window.prevSlide = function() {
@@ -117,22 +122,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+
+        // Font shrink
+    function shrinkTextToFit(slide) {
+            const h2 = slide.querySelector('h2');
+            if (!h2) return;
+
+            h2.style.fontSize = "24px"; 
+            let fontSize = 24;
+
+            while (h2.scrollHeight > h2.offsetHeight && fontSize > 10) {
+                fontSize--;
+                h2.style.fontSize = fontSize + "px";
+            }
+        }
+
+    function showSlide(index) {
+            slides.forEach(slide => slide.style.display = "none");
+            const currentSlide = slides[index];
+            
+            if (currentSlide) {
+                currentSlide.style.display = "block"; 
+                
+                shrinkTextToFit(currentSlide);
+
+                const currentId = currentSlide.getAttribute("data-meme-id");
+                if (hiddenInput) hiddenInput.value = currentId;
+                addView(currentId);
+            }
+        }
     showSlide(slideIndex);
     checkLimitAndHide();
 
-        window.addEventListener('load', function() {
-            document.querySelectorAll('h2').forEach(el => {
-                let fontSize = 24;
-                let container = el.parentElement;
-
-                while (el.scrollHeight > container.offsetHeight && fontSize > 10) {
-                    fontSize--;
-                    el.style.fontSize = fontSize + "px";
-                }
-            });
-        });
-
 });
+
+
 </script>
 </body>
 </html>

@@ -56,7 +56,7 @@ class MemeController extends Controller {
     }
 
     public function adminAuth(Request $request){
-        if ($request->password === 'votre_mot_de_passe_secret') {
+        if ($request->password === 'ratatouille27') {
             session(['admin_logged_in' => true]);
             return redirect()->route('admin.dashboard');
         }
