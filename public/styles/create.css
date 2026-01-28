@@ -74,6 +74,7 @@ label{
 .input-container button{
     margin-bottom: 20px;
     background-color: #1E0737;
+    text-transform: uppercase;
     padding: 15px 30px;
     color: #fff;
     font-size: 24px;
@@ -156,7 +157,6 @@ label{
 }
 
 @media screen and (max-width:600px) {
-
     .help{
         width: 30px;
         height: 30px;
@@ -181,7 +181,7 @@ label{
     }
 
     .input-container textarea{
-        width: 300px;
+        width: 265px;
         height: 60px;
         margin: 0px;
 
@@ -195,7 +195,7 @@ label{
 
     h1{
         font-size: 32px;
-        margin-left: 30px;
+        margin-left: 25px;
     }
 
     label{

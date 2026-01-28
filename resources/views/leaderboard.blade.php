@@ -112,9 +112,6 @@
     applyLeaderboardShrink();
     applyRowShrink();
 });
-
-
-
-    </script>
+</script>
 </body>
 </html>

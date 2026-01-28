@@ -45,6 +45,7 @@ p{
     padding: 8px;
     hyphens: auto;
     word-break: break-word;
+    text-transform: uppercase;
 }
 
 img{
