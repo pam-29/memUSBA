@@ -29,13 +29,13 @@
 
         <div class="vote" id="voteButtons">
             <a onclick="likeAndNext()" style="cursor: pointer;" class="arrow"> 
-                <img src="/dislike.svg" alt="icone je n'aime pas">
+                <img src="/like.svg" alt="icone j'aime pas">
             </a>
 
             <p style="font-size: 30px;">/</p>
             
             <a onclick="prevSlide()" style="cursor: pointer;" class="arrow">
-                <img src="/like.svg" alt="icone j'aime">
+                <img src="/dislike.svg" alt="icone je n'aime pas">
             </a>
         </div>
     @else
