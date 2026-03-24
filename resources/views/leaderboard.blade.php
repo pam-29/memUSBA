@@ -69,7 +69,7 @@
 
     <script>
         document.getElementById('refresh').innerText = new Date().toLocaleTimeString();
-        setTimeout(() => location.reload(), 120000);
+        setTimeout(() => location.reload(), 30000);
 
     // Font shrink
     document.addEventListener('DOMContentLoaded', () => {
